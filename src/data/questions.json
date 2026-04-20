@@ -1,0 +1,491 @@
+{
+  "version": "1.0",
+  "id": "ai_risk_questionnaire_v1",
+  "defaultLocale": "en",
+  "supportedLocales": ["en", "de"],
+  "sections": [
+    {
+      "id": "org_profile",
+      "questions": [
+        {
+          "id": "Q01",
+          "type": "single_select",
+          "required": true,
+          "role": "informational",
+          "visible": true,
+          "options": [
+            { "id": "general_commercial" },
+            { "id": "financial_services" },
+            { "id": "insurance" },
+            { "id": "healthcare" },
+            { "id": "education" },
+            { "id": "employment_hr" },
+            { "id": "public_sector" },
+            { "id": "law_justice" },
+            { "id": "critical_infra" },
+            { "id": "other" }
+          ]
+
+        },
+        {
+          "id": "Q02",
+          "type": "multi_select",
+          "required": false,
+          "role": "informational",
+          "visible": true,
+         "exclusive_options": ["other"],         
+          "options": [
+        { "id": "AT" },
+        { "id": "BE" },
+        { "id": "BG" },
+        { "id": "HR" },
+        { "id": "CY" },
+        { "id": "CZ" },
+        { "id": "DK" },
+        { "id": "EE" },
+        { "id": "FI" },
+        { "id": "FR" },
+        { "id": "DE" },
+        { "id": "GR" },
+        { "id": "HU" },
+        { "id": "IE" },
+        { "id": "IT" },
+        { "id": "LV" },
+        { "id": "LT" },
+        { "id": "LU" },
+        { "id": "MT" },
+        { "id": "NL" },
+        { "id": "PL" },
+        { "id": "PT" },
+        { "id": "RO" },
+        { "id": "SK" },
+        { "id": "SI" },
+        { "id": "ES" },
+        { "id": "SE" },
+        { "id": "other"}
+        ]
+        },
+        {
+          "id": "Q03",
+          "type": "multi_select",
+          "required": false,
+          "role": "maturity",
+          "visible": false,          
+          "options": [
+            { "id": "provider_developer" },
+            { "id": "deployer_user" },
+            { "id": "integrator_reseller" },
+            { "id": "consultancy_advisory" },
+            { "id": "undecided" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "use_case_description",
+      "questions": [
+        {
+          "id": "Q04",
+          "type": "text",
+          "required": false,
+          "role": "informational",
+          "visible": true
+        },
+        {
+          "id": "Q05",
+          "type": "multi_select",
+          "required": false,
+          "role": "maturity",
+          "visible": false,          
+          "options": [
+            { "id": "generates_media" },
+            { "id": "classifies_scores" },
+            { "id": "recommends_actions" },
+            { "id": "people_decisions" },
+            { "id": "pattern_detection" },
+            { "id": "biometric_capabilities" },
+            { "id": "other" }
+          ]
+        },
+        {
+          "id": "Q06",
+          "type": "single_select",
+          "required": false,
+          "role": "context",
+          "visible": true,          
+          "options": [
+            { "id": "customer_facing" },
+            { "id": "employee_facing" },
+            { "id": "internal" },
+            { "id": "embedded_services" },
+            { "id": "mixed" }
+          ]
+        },
+        {
+          "id": "Q07",
+          "type": "single_select",
+          "required": false,
+          "role": "context",
+          "visible": false,          
+          "options": [
+            { "id": "third_party" },
+            { "id": "plus_internal" },
+            { "id": "internally_developed" },
+            { "id": "unsure" }
+          ]
+        },
+        {
+          "id": "Q08",
+          "type": "single_select",
+          "required": true,
+          "role": "context",
+          "visible": true,          
+          "options": [
+            { "id": "likely_yes" },
+            { "id": "possible" },
+            { "id": "unsure" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "people_impacted",
+      "questions": [
+        {
+          "id": "Q09",
+          "type": "multi_select",
+          "required": false,
+          "role": "risk",
+          "visible": false,
+          "options": [
+            { "id": "customers" },
+            { "id": "employees" },
+            { "id": "job_applicants" },
+            { "id": "students" },
+            { "id": "patients" },
+            { "id": "children_minors" },
+            { "id": "public_members" },
+            { "id": "no_impact" },
+            { "id": "other" }
+          ]
+        },
+        {
+          "id": "Q10",
+          "type": "single_select",
+          "required": true,
+          "role": "risk",
+          "visible": true,          
+          "options": [
+            { "id": "yes" },
+            { "id": "possible" },
+            { "id": "no" }
+          ],
+          "excludeWhen": [
+            {
+            "option": "yes",
+            "questionId": "Q16",
+            "notEquals": "info"
+            }
+          ]
+        },
+        {
+          "id": "Q11",
+          "type": "single_select",
+          "required": false,
+          "role": "risk",
+          "visible": true,          
+          "options": [
+            { "id": "yes" },
+            { "id": "possible" },
+            { "id": "no" }
+          ]
+        },
+        {
+          "id": "Q12",
+          "type": "single_select",
+          "required": false,
+          "role": "risk",
+          "visible": false,           
+          "options": [
+            { "id": "yes" },
+            { "id": "sometimes" },
+            { "id": "no" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data_and_privacy",
+      "questions": [
+        {
+          "id": "Q13",
+          "type": "multi_select",
+          "required": false,
+          "role": "risk",
+          "visible": true,
+          "options": [
+            { "id": "personal_data" },
+            { "id": "sensitive_data" },
+            { "id": "biometric_data" },
+            { "id": "profiling_data" },
+            { "id": "confidential_data" },
+            { "id": "public_data" }
+          ]
+        },
+        {
+          "id": "Q14",
+          "type": "single_select",
+          "required": false,
+          "role": "risk",
+          "visible": false,          
+          "options": [
+            { "id": "yes" },
+            { "id": "partly" },
+            { "id": "no" },
+            { "id": "not_applicable" }
+          ]
+        },
+        {
+          "id": "Q15",
+          "type": "single_select",
+          "required": false,
+          "role": "risk",
+          "visible": false,          
+          "options": [
+            { "id": "yes" },
+            { "id": "partly" },
+            { "id": "no" },
+            { "id": "not_applicable" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decision_impact",
+      "questions": [
+        {
+          "id": "Q16",
+          "type": "single_select",
+          "required": true,
+          "role": "risk",
+          "visible": true,          
+          "options": [
+            { "id": "info" },
+            { "id": "decision_support" },
+            { "id": "trigger_auto" },
+            { "id": "people_decision" }
+          ],
+          "excludeWhen": [
+            { "option": "info",
+              "questionId": "Q10",
+              "equals": "yes"
+            },
+            {
+              "option": "people_decision",
+              "questionId": "Q10",
+              "equals": "no"
+            }
+          ]
+        },
+        {
+          "id": "Q17",
+          "type": "single_select",
+          "required": false,
+          "role": "risk",
+          "visible": false,          
+          "options": [
+            { "id": "high_impact" },
+            { "id": "moderate_impact" },
+            { "id": "low_impact" },
+            { "id": "unsure" }
+          ]
+        },
+        {
+          "id": "Q18",
+          "type": "multi_select",
+          "required": false,
+          "role": "risk",
+          "visible": false,          
+          "options": [
+            { "id": "employment_management" },
+            { "id": "education_admissions" },
+            { "id": "essential_services" },
+            { "id": "law_enforcement" },
+            { "id": "migration_control" },
+            { "id": "justice_processes" },
+            { "id": "medical_healthcare" },
+            { "id": "infrastructure_safety" },
+            { "id": "none_of_these" },
+            { "id": "unsure" }
+          ]
+        },
+        {
+          "id": "Q19",
+          "type": "single_select",
+          "required": false,
+          "role": "risk",
+          "visible": false,          
+          "options": [
+            { "id": "yes" },
+            { "id": "possible" },
+            { "id": "no" }
+          ]
+        },
+        {
+          "id": "Q20",
+          "type": "single_select",
+          "required": false,
+          "role": "risk",
+          "visible": false,          
+          "options": [
+            { "id": "yes" },
+            { "id": "possible" },
+            { "id": "no" },
+            { "id": "unsure" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oversight_security",
+      "questions": [
+        {
+          "id": "Q21",
+          "type": "single_select",
+          "required": false,
+          "role": "risk",
+          "visible": true,          
+          "options": [
+            { "id": "review_approval" },
+            { "id": "review_cases" },
+            { "id": "limited_oversight" },
+            { "id": "not_yet_defined" }
+          ]
+        },
+        {
+          "id": "Q22",
+          "type": "single_select",
+          "required": false,
+          "role": "risk",
+          "visible": false,          
+          "options": [
+            { "id": "yes" },
+            { "id": "partly" },
+            { "id": "no" }
+          ]
+        },
+        {
+          "id": "Q23",
+          "type": "single_select",
+          "required": false,
+          "role": "risk",
+          "visible": false,          
+          "options": [
+            { "id": "yes" },
+            { "id": "partly" },
+            { "id": "no" }
+          ]
+        },
+        {
+          "id": "Q24",
+          "type": "single_select",
+          "required": false,
+          "role": "risk",
+          "visible": false,          
+          "options": [
+            { "id": "yes" },
+            { "id": "partly" },
+            { "id": "no" },
+            { "id": "not_deployed_yet" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "governance_docs",
+      "questions": [
+        {
+          "id": "Q25",
+          "type": "single_select",
+          "required": false,
+          "role": "risk",
+          "visible": false,          
+          "options": [
+            { "id": "both_defined" },
+            { "id": "one_defined" },
+            { "id": "none_defined" }
+          ]
+        },
+        {
+          "id": "Q26",
+          "type": "single_select",
+          "required": false,
+          "role": "risk",
+          "visible": false,          
+          "options": [
+            { "id": "yes" },
+            { "id": "planned" },
+            { "id": "no" }
+          ]
+        },
+        {
+          "id": "Q27",
+          "type": "single_select",
+          "required": false,
+          "role": "risk",
+          "visible": false,          
+          "options": [
+            { "id": "yes" },
+            { "id": "partly" },
+            { "id": "no" }
+          ]
+        },
+        {
+          "id": "Q28",
+          "type": "single_select",
+          "required": false,
+          "role": "risk",
+          "visible": false,
+          "options": [
+            { "id": "yes" },
+            { "id": "partly" },
+            { "id": "no" },
+            { "id": "not_applicable" }
+          ]
+        },
+        {
+          "id": "Q29",
+          "type": "single_select",
+          "required": false,
+          "role": "risk",
+          "visible": false,          
+          "options": [
+            { "id": "yes" },
+            { "id": "partly" },
+            { "id": "no" }
+          ]
+        },
+        {
+          "id": "Q30",
+          "type": "multi_select",
+          "required": true,
+          "role": "risk",
+          "visible": true,         
+          "exclusive_options": ["none_yet"],
+          "options": [
+            { "id": "use_case" },
+            { "id": "data_source" },
+            { "id": "risk_assessment" },
+            { "id": "oversight_procedure" },
+            { "id": "testing_records" },
+            { "id": "monitoring_plan" },
+            { "id": "incident_procedure" },
+            { "id": "transparency_notice" },
+            { "id": "vendor_assessment" },
+            { "id": "none_yet" }
+          ]
+        }
+      ]
+    }
+  ]
+}

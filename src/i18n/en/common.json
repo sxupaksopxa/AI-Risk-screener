@@ -1,0 +1,163 @@
+{
+  "nav": {
+    "home": "Home",
+    "questionnaire": "Questionnaire",
+    "results": "Results",
+    "report": "Report",
+    "about": "About Us"
+  },
+  "home": {
+    "title": "AI Risk Screener",
+    "subtitle": "A practical assessment tool that helps organizations identify potential AI risk areas, highlight governance gaps, and assess evidence readiness to support improvements in line with the EU AI Act.",
+    "startAssessment": "Start assessment",
+    "sections": {
+      "what": {
+        "title": "What this tool does",
+        "p1": "The AI Risk Screener guides users through a structured questionnaire about an AI use case, covering organizational context, intended use, affected people, data and privacy considerations, decision impact, human oversight, and governance practices.",
+        "p2": "Based on the answers, it highlights key risk signals, identifies governance and control gaps, and provides a focused set of recommendations for critical issues. It also reflects the availability of supporting evidence such as risk assessments, oversight procedures, and monitoring practices."
+      },
+      "how": {
+        "title": "How it works",
+        "step1Title": "Fill questionnaire",
+        "step1Text": "Fill in a short questionnaire about your AI use case",
+        "step2Title": "Review results",
+        "step2Text": "Review risk classification and key findings",
+        "step3Title": "Generate report",
+        "step3Text": "Generate a structured report",
+        "how_it_works": "See how the AI Risk Screener works."
+      },
+      "why": {
+        "title": "Why it is helpful",
+        "p1": "Many organizations are already using AI, but it’s often unclear how to quickly understand the risks or how well things are governed.",
+        "p2": "This tool makes that easier. It turns a complex topic into a simple, guided assessment that highlights where risks might exist, what might be missing, and how well oversight and documentation are in place.",
+        "p3": "It also helps teams get on the same page and have more focused conversations about what needs attention."
+      },
+      "who": {
+        "title": "Who it is for",
+        "p1": "This tool is useful for small and midsize companies using AI in their products or internal processes, teams introducing AI features into software or services, and consultants running structured assessments.",
+        "p2": "It also works well as a simple first step before a deeper internal review."
+      },
+      "note": {
+        "title": "Important note",
+        "p1": "This tool is meant to help you screen and prioritize AI risks and structure your next steps. It is not legal advice and does not provide a formal compliance assessment."
+      }
+    }
+  },
+  "actions": {
+    "back": "Back",
+    "viewReport": "View report",
+    "testResults": "Review results",
+    "reset": "Reset questionnaire",
+    "viewResults": "Review results",
+    "downloadPdf": "Download PDF",
+    "provideFeedback": "Provide feedback",
+    "generateReport": "Generate Report",
+    "userManual": "User Manual (EN)"
+  },
+  "results": {
+    "title": "AI Risk Assessment Summary",
+    "p1":"This summary provides an overview of the assessed AI use case, including key risk signals, governance gaps, and evidence readiness.",
+    "priority": "Priority",
+    "regulatoryPaths": "Regulatory Paths",
+    "riskScore": "Risk Score",
+    "keyFlags": "Key Flags",
+    "recommendations": "Recommendations",
+    "maturityScores": "Maturity Scores",
+    "matched_rules": "Key Risk Indicators",
+    "noData": "No assessment data available. Please complete the questionnaire.",
+    "previewTitle": "Current Risk Overview",
+    "riskTitle": "Accumulated score"
+  },
+  "report": {
+    "title": "Report",
+    "subtitle": "Your downloadable assessment report",
+    "labels": {
+      "notAssessed": "Not assessed",
+      "noInformationProvided": "No information provided.",
+      "notAvailable": "Not available.",
+      "available": "Available",
+      "missingOrUnclear": "Missing or unclear",
+      "systemBasedOnInputs": "System details are based on the information currently provided.",
+      "noMajorGaps": "No major control gaps were identified from the current answers.",
+      "noImmediateActions": "No immediate actions were identified based on the current assessment.",
+      "continueDocumenting": "Continue documenting system purpose, oversight, and evidence for future review.",
+      "noEvidenceConfirmed": "No evidence items were confirmed in the current assessment.",
+      "noCombinedFindings": "No improvement areas identified.",
+      "maturityProfileIntro": "This profile shows readiness across key governance and control domains."
+    },
+    "sections": {
+      "summary": "Executive Summary",
+      "system": "System Description",
+      "risk": "Risk Classification",
+      "gaps": "Key Findings",
+      "combinedFindings": "Improvement Areas",
+      "actions": "Recommended Actions",
+      "evidence": "Evidence Checklist",
+      "maturityProfile": "Maturity Profile",
+      "disclaimer": {
+        "title": "Disclaimer",
+        "text": "This report is generated for guidance purposes only and does not constitute legal advice."
+      }
+    },
+    "gaps": {
+      "documentation": "Documentation should be strengthened.",
+      "oversight": "Human oversight should be strengthened.",
+      "governance": "Governance arrangements should be clarified.",
+      "data": "Data maturity is critically low."
+    },
+    "emptyState": {
+      "summary": "No assessment data available. Please complete the questionnaire to generate a risk assessment report.",
+      "system": "No information provided.",
+      "risk": "The AI system has not yet been evaluated. Complete the questionnaire to determine the applicable risk level.",
+      "gaps": "Control gaps are identified based on assessment inputs.",
+      "actions": "Complete the questionnaire to receive tailored recommendations.",
+      "evidence": "Evidence requirements will be generated after completing the assessment.",
+      "topNote": "This report is generated based on the provided questionnaire responses. Incomplete input may result in limited or no assessment output."
+    },
+    "evidence": {
+      "governanceAvailable": "Basic governance arrangements appear to be in place.",
+      "governanceMissing": "Governance documentation or ownership is not clearly established.",
+      "oversightAvailable": "Human oversight appears to be defined.",
+      "oversightMissing": "Human oversight evidence is limited or missing.",
+      "documentationAvailable": "Documentation evidence appears to be available.",
+      "documentationMissing": "Documentation evidence is limited or missing."
+    },
+    "maturityLevels": {
+      "mature": "Mature",
+      "managed": "Managed",
+      "developing": "Developing",
+      "initial": "Initial"
+    },
+    "defaultPurpose": "an AI-supported use case",
+    "defaultData": "the information currently provided",
+    "oversightGood": "Human oversight appears to be present.",
+    "oversightPoor": "Human oversight is limited or not yet clearly defined."
+  },
+  "footer": {
+    "status": "Early MVP — under active development."
+  },
+  "requiredNote": "Required question",
+  "about": {
+  "navLabel": "About Us",
+  "title": "About Us",
+  "intro": "AI Risk Screener was created as a practical pre-assessment tool to help organizations review AI use cases in a more structured, understandable, and actionable way.",
+  "sections": {
+    "mission": {
+      "title": "Our mission",
+      "p1": "The goal is to make early AI risk screening more accessible for organizations that need a lightweight first step before deeper legal, compliance, security, or governance review."
+    },
+    "why": {
+      "title": "Why this tool exists",
+      "p1": "Many organizations are already using AI features, APIs, and embedded AI capabilities, but often lack a simple way to identify possible risk areas, governance gaps, and documentation needs early in the process."
+    },
+    "help": {
+      "title": "What the tool helps with",
+      "p1": "The tool helps teams structure AI use case intake, identify possible regulatory path indicators, highlight governance and control gaps, prepare recommendations and evidence needs, and support conversations across business, compliance, risk, security, and technical teams."
+    },
+    "note": {
+      "title": "Important note",
+      "p1": "The tool is intended as a screening and prioritization aid. It does not replace legal advice, formal conformity assessment, or internal approval processes."
+      }
+    }
+  }
+}

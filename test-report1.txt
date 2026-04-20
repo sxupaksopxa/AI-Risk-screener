@@ -1,0 +1,40 @@
+AI Risk Screener Test Report
+Total: 10
+Passed: 7
+Failed: 3
+
+PASS TC-001 - General commercial informational AI
+
+FAIL TC-002 - Financial services decision support with approval
+  - missing flags: eu_jurisdiction
+  actual.priority: priority.possible_high_risk
+  actual.riskPointsTotal: 25
+  actual.flags: financial_services_context, likely_ai_system, material_impact_on_people, human_in_the_loop, strong_human_oversight
+  matchedRules: R01-C02, R01-X04, R08-C01, R10-C01, R10-X03, R16-C02, R21-C03, R030
+
+FAIL TC-003 - Healthcare people decision with approval
+  - priority mismatch: expected=priority.possible_high_risk, actual=priority.likely_high_risk
+  - score above maximum: expected<=39, actual=40
+  actual.priority: priority.likely_high_risk
+  actual.riskPointsTotal: 40
+  actual.flags: high_risk_domain_indicator, likely_ai_system, material_impact_on_people, human_impact_decision, strong_human_oversight
+  matchedRules: R01-C04, R01-X01, R01-X02, R08-C01, R10-C01, R10-X02, R16-C04, R16-X02, R21-C03, R029
+
+PASS TC-004 - Employment HR people decision with limited oversight
+
+FAIL TC-005 - Public sector people decision with no oversight defined
+  - score above maximum: expected<=70, actual=75
+  actual.priority: priority.likely_high_risk
+  actual.riskPointsTotal: 75
+  actual.flags: high_risk_domain_indicator, likely_ai_system, material_impact_on_people, human_impact_decision, no_human_oversight_defined
+  matchedRules: R01-C07, R01-X01, R01-X02, R01-X03, R08-C01, R10-C01, R10-X02, R10-X06, R16-C04, R16-X04, R21-C02, R028
+
+PASS TC-006 - Critical infrastructure automated action with limited oversight
+
+PASS TC-007 - Education decision support with review cases
+
+PASS TC-008 - General commercial possible AI scope
+
+PASS TC-009 - Law and justice people decision with no oversight
+
+PASS TC-010 - Insurance decision support with approval

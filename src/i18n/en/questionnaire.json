@@ -1,0 +1,714 @@
+{
+  "title": "AI Risk Assessment Platform",
+  "description": "Thirty-question screening questionnaire for AI use case intake, regulatory path indication, governance maturity, and evidence readiness.",
+  "helperText": "You can complete this gradually. Results update automatically.",
+  "helperTextSubtle": "Answers are not saved when you leave this page.",
+
+  "sections": {
+    "org_profile": {
+      "title": "Organization profile"
+    },
+    "use_case_description": {
+      "title": "AI use case description"
+    },
+    "people_impacted": {
+      "title": "People impacted"
+    },
+    "data_and_privacy": {
+      "title": "Data and privacy"
+    },
+    "decision_impact": {
+      "title": "Decision impact"
+    },
+    "oversight_security": {
+      "title": "Human oversight, security, and resilience"
+    },
+    "governance_docs": {
+      "title": "Governance and documentation"
+    }
+  },
+  "questions": {
+    "Q01": {
+      "label": "What sector best describes your organization?",
+      "options": {
+        "general_commercial": "General commercial",
+        "financial_services": "Financial services",
+        "insurance": "Insurance",
+        "healthcare": "Healthcare",
+        "education": "Education",
+        "employment_hr": "Employment / HR",
+        "public_sector": "Public sector",
+        "law_justice": "Law enforcement / justice",
+        "critical_infra": "Critical infrastructure",
+        "other": "Other regulated sector"
+      }
+    },
+    "Q02": {
+    "label": "In which country or countries will this AI use case be deployed?",
+    "options": {
+      "AT": "Austria",
+      "BE": "Belgium",
+      "BG": "Bulgaria",
+      "HR": "Croatia",
+      "CY": "Cyprus",
+      "CZ": "Czech Republic",
+      "DK": "Denmark",
+      "EE": "Estonia",
+      "FI": "Finland",
+      "FR": "France",
+      "DE": "Germany",
+      "GR": "Greece",
+      "HU": "Hungary",
+      "IE": "Ireland",
+      "IT": "Italy",
+      "LV": "Latvia",
+      "LT": "Lithuania",
+      "LU": "Luxembourg",
+      "MT": "Malta",
+      "NL": "Netherlands",
+      "PL": "Poland",
+      "PT": "Portugal",
+      "RO": "Romania",
+      "SK": "Slovakia",
+      "SI": "Slovenia",
+      "ES": "Spain",
+      "SE": "Sweden",
+      "other": "Other"
+      }
+    },
+    "Q03": {
+      "label": "What is your organization’s role for this use case?",
+      "options": {
+        "provider_developer": "Provider / developer",
+        "deployer_user": "Deployer / user",
+        "integrator_reseller": "Integrator / reseller",
+        "consultancy_advisory": "Consultancy / advisory support",
+        "undecided": "Not yet decided"
+      }
+    },
+    "Q04": {
+      "label": "What is the name of the AI use case or feature?",
+      "placeholder": "Example: Claims triage assistant"
+    },
+    "Q05": {
+      "label": "Which description best matches what the system does?",
+      "options": {
+        "generates_media": "Generates text / images / code / media",
+        "classifies_scores": "Classifies, ranks, or scores information",
+        "recommends_actions": "Recommends actions or next steps",
+        "people_decisions": "Supports or makes decisions about people",
+        "patterns_detection": "Detects patterns, anomalies, or fraud",
+        "biometric_capabilities": "Uses biometric or emotion-related capabilities",
+        "other": "Other"
+      }
+    },
+    "Q06": {
+      "label": "Is the functionality customer-facing, employee-facing, internal-only, or embedded in another product?",
+      "options": {
+        "customer_facing": "Customer-facing",
+        "employee_facing": "Employee-facing",
+        "internal": "Internal-only",
+        "embedded_services": "Embedded in another product / service",
+        "mixed": "Mixed"
+      }
+    },
+    "Q07": {
+      "label": "Does the use case rely on a third-party AI model, API, or foundation model provider?",
+      "options": {
+        "third_party": "Yes, third-party only",
+        "plus_internal": "Yes, third-party plus internal components",
+        "internally_developed": "No, internally developed",
+        "unsure": "Not sure"
+      }
+    },
+    "Q08": {
+      "label": "Is this likely an AI system in scope, based on how it generates outputs, predictions, recommendations, or decisions from inputs?",
+      "options": {
+        "likely_yes": "Likely yes",
+        "possible": "Possible",
+        "likely_no": "Likely no / simple automation",
+        "unsure": "Not sure"
+      }
+    },
+    "Q09": {
+      "label": "Who is mainly affected by the outputs of this use case?",
+      "options": {
+        "customers": "Customers",
+        "employees": "Employees",
+        "job_applicants": "Job applicants",
+        "students": "Students",
+        "patients": "Patients",
+        "children_minors": "Children / minors",
+        "public_members": "Members of the public",
+        "no_impact": "No direct impact on people",
+        "other": "Other"
+      }
+    },
+    "Q10": {
+      "label": "Could the outputs materially affect a person’s rights, access, opportunities, safety, or treatment?",
+      "options": {
+        "yes": "Yes",
+        "possible": "Possible",
+        "no": "No"
+      }
+    },
+    "Q11": {
+      "label": "Are children, other vulnerable persons, or sensitive populations in scope?",
+      "options": {
+        "yes": "Yes",
+        "possible": "Possible",
+        "no": "No"
+      }
+    },
+    "Q12": {
+      "label": "Will the system interact directly with people without it always being obvious that AI is being used?",
+      "options": {
+        "yes": "Yes",
+        "sometimes": "Sometimes",
+        "no": "No"
+      }
+    },
+    "Q13": {
+      "label": "What categories of data does the use case process?",
+      "options": {
+        "no_data": "No personal data",
+        "personal_data": "Basic personal data",
+        "sensitive_data": "Sensitive / special-category personal data",
+        "biometric_data": "Biometric data",
+        "profiling_data": "Behavioral / profiling data",
+        "confidential_data": "Confidential business data",
+        "public_data": "Public/open data only"
+      }
+    },
+    "Q14": {
+      "label": "Are training, tuning, retrieval, or prompt inputs documented well enough to describe data provenance and permitted use?",
+      "options": {
+        "yes": "Yes",
+        "partly": "Partly",
+        "no": "No",
+        "not_applicable": "Not applicable"
+      }
+    },
+    "Q15": {
+      "label": "Are data quality checks defined for relevance, accuracy, completeness, and potential bias?",
+      "options": {
+        "yes": "Yes",
+        "partly": "Partly",
+        "no": "No",
+        "not_applicable": "Not applicable"
+      }
+    },
+    "Q16": {
+      "label": "How are the AI outputs used in practice?",
+      "options": {
+        "info": "Informational only",
+        "decision_support": "Decision support with human review",
+        "trigger_auto": "Can trigger actions automatically",
+        "people_decision": "Can influence decisions about people (e.g. hiring, credit approval, access to services)",
+        "undecided": "Not yet decided"
+      }
+    },
+    "Q17": {
+      "label": "Could a wrong output cause financial loss, denial of service, reputational damage, discrimination, or safety harm?",
+      "options": {
+        "high_impact": "High potential impact",
+        "moderate_impact": "Moderate potential impact",
+        "low_impact": "Low potential impact",
+        "unsure": "Not sure"
+      }
+    },
+    "Q18": {
+      "label": "Is the use case linked to any of the following areas that may require closer regulatory screening?",
+      "options": {
+        "employment_management": "Employment / worker management",
+        "education_admissions": "Education / exams / admissions",
+        "essential_services": "Essential private or public services",
+        "law_enforcement": "Law enforcement",
+        "migration_control": "Migration / border control",
+        "justice_processes": "Administration of justice / democratic processes",
+        "medical_healthcare": "Medical devices / healthcare",
+        "infrastructure_safety": "Critical infrastructure / safety components",
+        "none_of_these": "None of these",
+        "unsure": "Not sure"
+      }
+    },
+    "Q19": {
+      "label": "Does the use case use biometric identification, categorization, emotion recognition, or similar inference about people?",
+      "options": {
+        "yes": "Yes",
+        "possible": "Possible",
+        "no": "No"
+      }
+    },
+    "Q20": {
+      "label": "Could the use case be seen as manipulating behavior, exploiting vulnerabilities, social scoring, or conducting untargeted scraping / prohibited biometric practices?",
+      "options": {
+        "yes": "Yes",
+        "possible": "Possible",
+        "no": "No",
+        "unsure": "Not sure"
+      }
+    },
+    "Q21": {
+      "label": "What level of human oversight exists before consequential outputs are used?",
+      "options": {
+        "review_approval": "Strong review and approval",
+        "review_cases": "Review for selected cases",
+        "limited_oversight": "Limited oversight",
+        "no_oversight": "No meaningful oversight",
+        "not_yet_defined": "Not yet defined"
+      }
+    },
+    "Q22": {
+      "label": "Are logging, traceability, and version records available for prompts, models, rules, and key outputs?",
+      "options": {
+        "yes": "Yes",
+        "partly": "Partly",
+        "no": "No"
+      }
+    },
+    "Q23": {
+      "label": "Are security controls defined for access, secrets, model/API usage, abuse prevention, and incident handling?",
+      "options": {
+        "yes": "Yes",
+        "partly": "Partly",
+        "no": "No"
+      }
+    },
+    "Q24": {
+      "label": "Is there monitoring for performance drift, harmful outputs, failures, and user complaints after deployment?",
+      "options": {
+        "yes": "Yes",
+        "partly": "Partly",
+        "no": "No",
+        "not_deployed_yet": "Not deployed yet"
+      }
+    },
+    "Q25": {
+      "label": "Is there a named business owner and a named risk/compliance owner for this AI use case?",
+      "options": {
+        "both_defined": "Both defined",
+        "one_defined": "One defined",
+        "none_defined": "None defined"
+      }
+    },
+    "Q26": {
+      "label": "Is this use case recorded in an AI inventory or similar governance register?",
+      "options": {
+        "yes": "Yes",
+        "planned": "Planned",
+        "no": "No"
+      }
+    },
+    "Q27": {
+      "label": "Have you documented the intended purpose, limitations, out-of-scope uses, and target users?",
+      "options": {
+        "yes": "Yes",
+        "partly": "Partly",
+        "no": "No"
+      }
+    },
+    "Q28": {
+      "label": "Has the organization assessed the third-party provider or model supplier for transparency, contractual terms, security, and documentation?",
+      "options": {
+        "yes": "Yes",
+        "partly": "Partly",
+        "no": "No",
+        "not_applicable": "Not applicable"
+      }
+    },
+    "Q29": {
+      "label": "Have staff using or overseeing this system received AI-specific guidance or training appropriate to their role?",
+      "options": {
+        "yes": "Yes",
+        "partly": "Partly",
+        "no": "No"
+      }
+    },
+    "Q30": {
+      "label": "Which evidence items already exist for this use case?",
+      "options": {
+        "use_case": "Use case description",
+        "data_source": "Data source description",
+        "risk_assessment": "Risk assessment",
+        "oversight_procedure": "Human oversight procedure",
+        "testing_records": "Testing records",
+        "monitoring_plan": "Monitoring plan",
+        "incident_procedure": "Incident / escalation procedure",
+        "transparency_notice": "Transparency notice",
+        "vendor_assessment": "Vendor due diligence notes",
+        "none_yet": "None yet"
+      }
+    }
+  },
+  "rules_engine": {
+    "title": "AI Risk Assessment Platform",
+    "notes": {
+      "note_id1": "This rule set is a screening and prioritization layer, not legal advice or a formal conformity assessment.",
+      "note_id2": "Rules are intentionally transparent and auditable so reviewers can trace outcomes to specific questionnaire responses."
+    }
+  },
+  "rules": {
+    "R01-C01": { "name": "General commercial sector" },
+    "R01-C02": { "name": "Financial services sector" },
+    "R01-C03": { "name": "Insurance sector" }, 
+    "R01-C04": { "name": "Healthcare sector" },
+    "R01-C05": { "name": "Education sector" },
+    "R01-C06": { "name": "Employment and HR sector" },
+    "R01-C07": { "name": "Public sector sector" },
+    "R01-C08": { "name": "Law and justice sector" },
+    "R01-C09": { "name": "Critical infrastructure sector" },
+    "R01-C10": { "name": "Other sector" },
+    "R01-X03": {
+      "name": "High-risk domain with undefined oversight",
+      "recommendation1": "Define and implement appropriate human oversight mechanisms before deploying AI systems in high-risk domains."
+    },
+    "R02-C01": { 
+      "name": "EU jurisdiction" ,
+      "recommendation1": "Assess whether this system falls under the EU AI Act and identify applicable obligations based on its use and risk level."
+    },
+    "R02-C02": { "name": "Non-EU jurisdiction" },
+
+    "R06-C01": { "name": "Customer-facing system" },
+    "R06-C02": { "name": "Employee-facing system" },
+    "R06-C03": { "name": "Internal system" },
+    "R06-C04": { "name": "Embedded service" },
+    "R06-C05": { "name": "Mixed exposure system" }, 
+    "R06-X01": {
+      "name": "Externally exposed AI use case",
+      "recommendation1": "Ensure transparency by informing users that they are interacting with an AI system where applicable."
+    },
+
+    "R08-C01": { "name": "Likely AI system in scope" },
+    "R08-C02": { "name": "Possible AI scope" },
+    "R08-C03": { 
+      "name": "Unclear AI scope",
+      "note": "The described functionality may be conventional automation rather than an AI system." },
+   
+    "R08-X01": {
+       "name": "Possible AI scope path",     
+       "recommendation1": "Clarify and document whether the system falls within the scope of AI, as this may affect the applicability of regulatory requirements." },
+    "R08-X02": {
+      "recommendation1": "Establish a clear determination of whether the system qualifies as an AI system; without this, the risk assessment cannot be considered reliable." },
+    
+    "R10-C01": { "name": "Material impact on people"},
+    "R10-C02": { "name": "Possible material impact on people"},
+    "R10-C03": { "name": "No material impact on people"}, 
+    "R10-X01": {
+      "recommendation1": "Implement appropriate risk management, human oversight, and control measures for AI systems with material impact on individuals."
+    },
+    "R10-X04": {
+      "name": "Vulnerable persons affected with material impact",
+      "recommendation1": "Implement enhanced safeguards, oversight, and risk controls where AI systems may materially affect vulnerable persons."
+    },
+    "R10-X06": {
+      "name": "Material impact with weak oversight",
+      "recommendation1": "Define and strengthen human oversight for AI systems with material impact on people before relying on outputs in decisions or automated actions."
+    },
+    "R11-C01": { "name": "Children or vulnerable persons in scope"},
+    "R11-C02": { "name": "Possible children or vulnerable persons in scope"},
+    "R11-C03": { "name": "No children or vulnerable persons in scope"}, 
+
+    "R13-C02": { "name": "Personal data processed" },
+    "R13-C03": { "name": "Sensitive data processed" },
+    "R13-C04": { "name": "Biometric data processed" },
+    "R13-C05": { "name": "Profiling data processed" },
+    "R13-C06": { "name": "Confidential data processed" },
+    "R13-C07": { "name": "Public data processed" },
+    "R13-X01": {
+      "recommendation1": "Ensure strict controls, legal basis, and safeguards when processing sensitive or biometric data within AI systems."
+    },
+
+    "R16-C01": { "name": "Informational use only" },
+    "R16-C02": { "name": "Decision support with human involvement" },
+    "R16-C03": { "name": "Automated action trigger" },
+    "R16-C04": { "name": "People-related decision impact" },
+    "R16-X01": {
+      "name": "Limited oversight in consequential decisions",
+      "recommendation1": "Strengthen human oversight for AI-supported consequential decisions and define clear review and intervention points before outputs are relied upon."
+    },
+    "R16-X04": {
+      "name": "No defined oversight for consequential use",
+      "recommendation1": "Define and implement formal human oversight before using AI outputs for consequential decisions or automated actions."
+    },
+
+    "R21-C01": { "name": "Strong human oversight" },
+    "R21-C02": { "name": "Human review for selected cases" },
+    "R21-C03": { "name": "Limited human oversight" },
+    "R21-C04": { "name": "No oversight defined" },    
+
+    "R30-C01": { "name": "Use case documented" },
+    "R30-C02": { "name": "Data source documented" },
+    "R30-C03": { "name": "Risk assessment available" },
+    "R30-C04": { "name": "Oversight procedure defined" },
+    "R30-C05": { "name": "Testing records available" },
+    "R30-C06": { "name": "Monitoring plan defined" },
+    "R30-C07": { "name": "Incident procedure defined" },
+    "R30-C08": { "name": "Transparency notice available" },
+    "R30-C09": { "name": "Vendor assessment available" },
+    "R30-C10": { "name": "Evidence pack missing" },
+    "R30-X01": {
+      "name": "No governance evidence available",
+      "recommendation1": "Establish core governance documentation, including use case description, data sources, risk assessment, and oversight procedures before deploying the AI system."
+    },
+
+    "R001": {
+      "name": "Likely AI system in scope"
+    },
+    "R002": {
+      "name": "Possible not in scope",
+      "note": "The described functionality may be conventional automation rather than an AI system."
+    },
+    "R003": {
+      "name": "Potential prohibited practice indicator",
+      "recommendation1": "Escalate immediately for legal and compliance review before deployment.",
+      "recommendation2": "Document the exact use pattern and affected population."
+    },
+    "R004": {
+      "name": "Biometric or emotion-related screening",
+      "recommendation1": "Review biometric, categorization, and emotion-related functionality against applicable AI Act restrictions and obligations."
+    },
+    "R005": {
+      "name": "High-risk domain linkage"
+    },
+    "R006": {
+      "name": "Material impact on people"
+    },
+    "R007": {
+      "name": "Direct interaction transparency check",
+      "recommendation1": "Consider user-facing notice or disclosure that AI is being used where appropriate."
+    },
+    "R008": {
+      "name": "Children or vulnerable persons",
+      "recommendation1": "Add enhanced review for harms, safeguards, and communication suitable for vulnerable persons."
+    },
+    "R009": {
+      "name": "Sensitive or biometric data usage",
+      "recommendation1": "Document legal basis, data minimization, provenance, and controls for sensitive data handling."
+    },
+    "R010": {
+      "name": "Weak provenance documentation",
+      "recommendation1": "Create a documented data source and provenance record for training, tuning, retrieval, and prompt inputs."
+    },
+    "R011": {
+      "name": "Incomplete data quality controls",
+      "recommendation1": "Define quality, bias, and relevance checks for data used by the AI use case."
+    },
+    "R012": {
+      "name": "Limited human oversight in consequential use",
+      "recommendation1": "Implement human review before consequential actions or decisions are finalized."
+    },
+    "R013": {
+      "name": "High potential harm",
+      "recommendation1": "Prioritize testing, escalation criteria, and documented risk acceptance before production use."
+    },
+    "R014": {
+      "name": "Security controls missing",
+      "recommendation1": "Define access control, secret management, abuse prevention, and AI incident handling controls."
+    },
+    "R015": {
+      "name": "Security controls partial"
+    },
+    "R016": {
+      "name": "Logging and traceability gap",
+      "recommendation1": "Implement logging for model versions, prompts/configuration, approvals, and material outputs where appropriate."
+    },
+    "R017": {
+      "name": "Post-deployment monitoring gap",
+      "recommendation1": "Define monitoring, complaint intake, and drift or harmful-output review procedures."
+    },
+    "R018": {
+      "name": "Ownership gap",
+      "recommendation1": "Assign a business owner and a risk/compliance owner for the AI use case."
+    },
+    "R019": {
+      "name": "AI inventory gap",
+      "recommendation1": "Record the use case in an AI inventory or governance register."
+    },
+    "R020": {
+      "name": "Purpose and limits not documented",
+      "recommendation1": "Document intended purpose, target users, limitations, and prohibited uses."
+    },
+    "R021": {
+      "name": "Third-party supplier review missing",
+      "recommendation1": "Perform supplier review covering transparency, security, contractual terms, and provider documentation."
+    },
+    "R022": {
+      "name": "AI literacy and training gap",
+      "recommendation1": "Provide role-appropriate AI training and operating guidance for staff."
+    },
+    "R023": {
+      "name": "Evidence pack missing",
+      "recommendation1": "Create a minimum evidence pack before launch or broader rollout."
+    },
+    "R024": {
+      "name": "Critical evidence gaps",
+      "recommendation1": "Prepare a risk assessment, oversight procedure, testing record, and monitoring plan."
+    },
+    "R025": {
+      "name": "Likely minimal-risk profile",
+      "note": "Current answers suggest a lower-risk profile, subject to confirmation of actual deployment details."
+    },
+    "R026": {
+      "name": "Baseline maturity credit"
+    },
+    "R027": {
+      "name": "Unclear AI scope",
+      "recommendation1": "Clarify whether the functionality qualifies as an AI system and document the reasoning."
+    },
+    "R028": {
+      "name": "Escalation threshold",
+      "note": "Immediate governance and compliance review recommended."
+    },
+    "R029": {
+      "name": "Moderate threshold"
+    },
+    "R030": {
+      "name": "Lower threshold"
+    },
+    "R_MATURITY_EVIDENCE": {
+      "name": "Evidence of maturity in place"
+    },
+    "R_GAP_NO_EVIDENCE": {
+      "name": "Missing evidence / documentation"
+    },
+    "R_OVERSIGHT_GOOD": {
+      "name": "Adequate human oversight"
+    },
+    "R_OVERSIGHT_POOR": {
+      "name": "Insufficient human oversight"
+    },
+    "R_GOVERNANCE_DEFINED": {
+      "name": "Governance structures defined"
+    }
+  },
+  "priority": {
+    "high": "High",
+    "moderate": "Moderate",
+    "lower": "Lower",
+    "lower_risk": "Lower-risk use case",
+    "possible_high_risk": "Possible high-risk use case",
+    "likely_high_risk": "Likely high-risk use case",
+    "potentially_prohibited": "Potentially prohibited AI practice"
+  },
+  "regulatory_paths": {
+  "possible_prohibited": "Possible prohibited practice",
+  "possible_high_risk": "Possible high-risk use case",
+  "possible_transparency_obligation": "Possible transparency obligation",
+  "likely_minimal_risk": "Likely minimal-risk profile",
+  "out_of_scope_or_unclear": "Out of scope or unclear"
+  },
+  "flags": {
+  "general_commercial_context": "General commercial context",
+  "financial_services_context": "Financial services context",
+  "insurance_context": "Insurance context",
+  "education_context": "Education context",
+  "other_sector_context": "Other sector context",
+  "high_risk_domain_indicator": "High-risk domain (e.g. healthcare, employment, public sector, or law enforcement)",
+
+  "eu_jurisdiction": "EU jurisdiction",
+  "non_eu_jurisdiction": "Non-EU jurisdiction",
+
+  "external_exposure": "Externally exposed system (e.g. customer-facing or embedded services)",
+
+  "likely_ai_system": "Likely AI system in scope",
+  "scope_unclear": "AI scope unclear or not clearly defined",
+
+  "material_impact_on_people": "Material impact on people",
+  "potential_impact_on_people": "Potential impact on people",
+
+  "vulnerable_persons_in_scope": "Children or vulnerable persons involved",
+  "potential_vulnerable_persons": "Possible involvement of vulnerable persons",
+
+  "personal_data_processing": "Personal data processing",
+  "profiling_data_processing": "Profiling data processing",
+  "confidential_data_processing": "Confidential data processing",
+  "sensitive_data_processing": "Sensitive data processing",
+  "biometric_or_emotion_screening": "Biometric or emotion-related data processing",
+
+  "informational_use": "Informational use only (no decision impact)",
+  "human_in_the_loop": "Human-in-the-loop decision support",
+  "automated_decision_making": "Automated decision-making",
+  "human_impact_decision": "AI strongly influences human decisions",
+
+  "strong_human_oversight": "Strong human oversight (review and approval before action)",
+  "review_cases_human_oversight": "Human review for selected cases",
+  "limited_human_oversight": "Limited human oversight",
+  "no_human_oversight_defined": "No human oversight defined",
+
+  "use_case_documented": "Use case documentation available",
+  "risk_assessment_available": "Risk assessment available",
+  "oversight_procedure_defined": "Oversight procedure defined",
+  "testing_records_available": "Testing records available",
+  "monitoring_plan_defined": "Monitoring plan defined",
+  "data_source_documented": "Data source documentation available",
+  "incident_procedure_defined": "Incident procedure defined",
+  "transparency_notice_available": "Transparency notice available",
+  "vendor_assessment_available": "Vendor assessment available",
+  "evidence_pack_missing": "Evidence and governance documentation missing",
+
+  "potential_prohibited_practice": "Potential prohibited practice indicator",
+  "transparency_screening_needed": "Direct interaction transparency check",
+  "data_provenance_gap": "Weak provenance documentation",
+  "data_quality_gap": "Incomplete data quality controls",
+  "oversight_gap": "Limited human oversight in consequential use",
+  "undefined_oversight_gap": "No defined human oversight",
+  "high_harm_potential": "High potential harm",
+  "security_control_gap": "Security controls missing",
+  "security_controls_incomplete": "Security controls partial",
+  "traceability_gap": "Logging and traceability gap",
+  "monitoring_gap": "Post-deployment monitoring gap",
+  "ownership_gap": "Ownership gap",
+  "inventory_gap": "AI inventory gap",
+  "vendor_due_diligence_gap": "Third-party supplier review missing",
+  "purpose_documentation_gap": "Purpose and limitations not documented",
+  "ai_literacy_gap": "AI literacy and training gap",
+  "core_artifacts_missing": "Critical evidence gaps",
+
+  "R_GAP_NO_EVIDENCE": "Missing evidence / documentation",
+  "R_OVERSIGHT_GOOD": "Adequate human oversight",
+  "R_OVERSIGHT_POOR": "Insufficient human oversight",
+  "R_GOVERNANCE_DEFINED": "Governance structures defined",
+  "broad_population_impact": "Affects general public"
+  },
+  "cflags": {
+    "core_governance_evidence_available": "Core governance evidence available",
+    "domain_undefined_oversight": "High-risk domain with undefined oversight",
+    "auto_decision_material_impact": "Automated decisions with material impact",
+    "confident_data_exposure": "Confidential data exposure",
+    "limited_oversight": "Limited oversight in consequential decisions",
+    "strong_approval": "Strong approval before action",
+    "post_action_review": "Post-action review in place",
+    "no_defined_ovesight": "No defined oversight for consequential use",
+    "no_governance_evidence": "No governance evidence available",
+    "governance_artifacts_missing": "Critical governance artifacts missing"
+  },
+  "evidenceChecklist": {
+    "use_case_documented": "AI use case description is documented",
+    "data_source_documented": "Data sources and provenance are documented",
+    "risk_assessment": "Risk assessment is available",
+    "oversight_procedure": "Human oversight procedures are defined",
+    "testing_records": "Testing and validation records are available",
+    "monitoring_plan": "Monitoring and performance tracking are defined",
+    "incident_procedure": "Incident handling procedures are defined",
+    "transparency_notice": "User transparency information is available",
+    "vendor_assessment": "Third-party/vendor assessment is documented"
+  },
+  "maturity_domains": {
+  "governance": "Governance",
+  "data": "Data",
+  "oversight": "Oversight",
+  "security": "Security",
+  "monitoring": "Monitoring",
+  "documentation": "Documentation",
+  "overall": "Overall"
+  },
+  "results": {
+  "strengths": "Strengths",
+  "risks": "Risks / Gaps"
+  },
+  "validationMessage": "Please answer all required questions before viewing the results.",
+  "actionHelperLine1": "Answer the questions and review Current Risk Overview.",
+  "actionHelperLine2": "When ready, continue to Review results and generate a report.",
+  "resetConfirm": "Reset all answers?"
+}

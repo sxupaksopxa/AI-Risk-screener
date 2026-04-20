@@ -1,0 +1,162 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "questionnaire": "Fragebogen",
+    "results": "Ergebnisse",
+    "report": "Bericht",
+    "about": "Über uns"
+  },
+  "home": {
+    "title": "AI Risk Screener",
+    "subtitle": "Ein praktisches Tool, das Organisationen hilft, mögliche KI-Risiken zu erkennen, Lücken in der Governance sichtbar zu machen und einzuschätzen, welche Nachweise bereits vorhanden sind, um Verbesserungen im Einklang mit dem EU AI Act zu unterstützen.",
+    "startAssessment": "Bewertung starten",
+    "sections": {
+      "what": {
+        "title": "Was dieses Tool macht",
+        "p1": "Der AI Risk Screener führt Schritt für Schritt durch einen strukturierten Fragenkatalog zu einem KI-Anwendungsfall. Dabei werden unter anderem Kontext, Zweck, betroffene Personen, Daten und Datenschutz, Auswirkungen von Entscheidungen, menschliche Aufsicht und Governance berücksichtigt.",
+        "p2": "Auf Basis der Antworten zeigt das Tool wichtige Risikosignale auf, macht Lücken in Governance und Kontrollen sichtbar und gibt gezielte Empfehlungen zu kritischen Punkten. Außerdem wird dargestellt, welche Nachweise bereits vorhanden sind, zum Beispiel Risikobewertungen, Aufsichtsprozesse oder Monitoring."
+      },
+      "how": {
+        "title": "So funktioniert es",
+        "step1Title": "Fragebogen ausfüllen",
+        "step1Text": "Füllen Sie einen kurzen Fragebogen zu Ihrem KI-Anwendungsfall aus",
+        "step2Title": "Ergebnisse prüfen",
+        "step2Text": "Überprüfen Sie die Risikoeinstufung und die wichtigsten Erkenntnisse",
+        "step3Title": "Bericht erstellen",
+        "step3Text": "Erstellen Sie einen strukturierten Bericht",
+        "how_it_works": "Sehen Sie, wie der AI Risk Screener funktioniert.",
+        "riskTitle": "Accumulated score"
+      },     
+      "why": {
+        "title": "Warum es hilfreich ist",
+        "p1": "Viele Unternehmen nutzen bereits KI, aber oft ist nicht sofort klar, wo Risiken liegen oder wie gut alles geregelt ist.",
+        "p2": "Dieses Tool macht es einfacher. Es führt Schritt für Schritt durch eine kurze Einschätzung und zeigt, wo mögliche Risiken bestehen, was fehlt und wie gut Dinge wie Aufsicht und Dokumentation aufgestellt sind.",
+        "p3": "Außerdem hilft es Teams, schneller zu einem gemeinsamen Verständnis zu kommen und gezielt über die nächsten Schritte zu sprechen."
+      },
+      "who": {
+        "title": "Für wen es gedacht ist",
+        "p1": "Das Tool richtet sich an kleine und mittelständische Unternehmen, die KI in Produkten oder internen Prozessen einsetzen, an Teams, die neue KI-Funktionen entwickeln, sowie an Berater, die strukturierte Einschätzungen durchführen.",
+        "p2": "Es eignet sich auch gut als erster Schritt vor einer tiefergehenden internen Prüfung."
+      },
+      "note": {
+        "title": "Wichtiger Hinweis",
+        "p1": "Dieses Tool hilft dabei, KI-Risiken einzuordnen und nächste Schritte zu strukturieren. Es ersetzt keine rechtliche Beratung und stellt keine formale Compliance-Prüfung dar."
+      }
+    }
+  },
+  "actions": {
+    "back": "Zurück",
+    "viewReport": "Bericht anzeigen",
+    "testResults": "Ergebnisseite testen",
+    "reset": "Fragebogen zurücksetzen",
+    "viewResults": "Ergebnisse prüfen",
+    "downloadPdf": "PDF herunterladen",
+    "provideFeedback": "Feedback geben",
+    "generateReport": "Bericht erstellen",
+    "userManual": "Benutzerhandbuch (EN)"
+  },
+  "results": {
+    "title": "Bewertungsergebnisse",
+    "priority": "Priorität",
+    "regulatoryPaths": "Regulatorische Pfade",
+    "riskScore": "Risikowert",
+    "keyFlags": "Wichtige Hinweise",
+    "recommendations": "Empfehlungen",
+    "maturityScores": "Reifegrad-Scores",
+    "matched_rules": "Übereinstimmende Regeln",
+    "noData": "Keine Bewertungsdaten vorhanden. Bitte füllen Sie den Fragebogen aus.",
+    "previewTitle": "Vorschau der Bewertungsergebnisse"
+  },
+  "report": {
+    "title": "Bericht",
+    "subtitle": "Ihr herunterladbarer Bewertungsbericht",
+    "labels": {
+      "notAssessed": "Nicht bewertet",
+      "noInformationProvided": "Keine Informationen angegeben.",
+      "notAvailable": "Nicht verfügbar.",
+      "available": "Vorhanden",
+      "missingOrUnclear": "Fehlend oder unklar",
+      "systemBasedOnInputs": "Die Systembeschreibung basiert auf den derzeit angegebenen Informationen.",
+      "noMajorGaps": "Auf Basis der aktuellen Antworten wurden keine wesentlichen Kontrolllücken festgestellt.",
+      "noImmediateActions": "Auf Basis der aktuellen Bewertung wurden keine unmittelbaren Maßnahmen identifiziert.",
+      "continueDocumenting": "Dokumentieren Sie Zweck, Aufsicht und Nachweise des Systems für eine spätere Überprüfung weiter.",
+      "noEvidenceConfirmed": "In der aktuellen Bewertung wurden keine Nachweise bestätigt.",
+      "noCombinedFindings": "Keine Verbesserungsbereiche identifiziert.",
+      "maturityProfileIntro": "Dieses Profil zeigt den Reifegrad über zentrale Governance- und Kontrolldomänen hinweg."
+    },
+    "sections": {
+      "summary": "Zusammenfassung",
+      "system": "Systembeschreibung",
+      "risk": "Risikoeinstufung",
+      "gaps": "Zentrale Erkenntnisse",
+      "combinedFindings": "Verbesserungsbereiche",
+      "actions": "Empfohlene Maßnahmen",
+      "evidence": "Evidenz-Checkliste",
+      "maturityProfile": "Reifegradprofil",
+      "disclaimer": {
+        "title": "Hinweis",
+        "text": "Dieser Bericht dient ausschließlich zu Informationszwecken und stellt keine Rechtsberatung dar."
+      }
+    },
+    "gaps": {
+      "documentation": "Die Dokumentation sollte gestärkt werden.",
+      "oversight": "Die menschliche Aufsicht sollte gestärkt werden.",
+      "governance": "Governance-Regelungen sollten klarer definiert werden.",
+      "data": "Die Datenreife ist kritisch niedrig."
+    },
+    "emptyState": {
+      "summary": "Keine Bewertungsdaten verfügbar. Bitte füllen Sie den Fragebogen aus, um einen Risikobericht zu erzeugen.",
+      "system": "Keine Informationen angegeben.",
+      "risk": "Das KI-System wurde noch nicht bewertet. Füllen Sie den Fragebogen aus, um die anwendbare Risikoeinstufung zu bestimmen.",
+      "gaps": "Kontrolllücken werden auf Grundlage der eingegebenen Bewertungsdaten ermittelt.",
+      "actions": "Füllen Sie den Fragebogen aus, um passende Empfehlungen zu erhalten.",
+      "evidence": "Nachweisanforderungen werden nach Abschluss der Bewertung erzeugt.",
+      "topNote": "Dieser Bericht wird auf Grundlage der angegebenen Fragebogenantworten erstellt. Unvollständige Eingaben können zu eingeschränkten oder fehlenden Ergebnissen führen."
+    },
+    "evidence": {
+      "governanceAvailable": "Grundlegende Governance-Strukturen scheinen vorhanden zu sein.",
+      "governanceMissing": "Governance-Dokumentation oder Zuständigkeiten sind nicht klar festgelegt.",
+      "oversightAvailable": "Menschliche Aufsicht scheint definiert zu sein.",
+      "oversightMissing": "Nachweise zur menschlichen Aufsicht sind begrenzt oder fehlen.",
+      "documentationAvailable": "Dokumentationsnachweise scheinen vorhanden zu sein.",
+      "documentationMissing": "Dokumentationsnachweise sind begrenzt oder fehlen." 
+    },
+    "maturityLevels": {
+      "mature": "Fortgeschritten",
+      "managed": "Gesteuert",
+      "developing": "Im Aufbau",
+      "initial": "Initial"
+    },
+    "defaultPurpose": "ein KI-gestützter Anwendungsfall",
+    "defaultData": "die derzeit bereitgestellten Informationen",
+    "oversightGood": "Menschliche Aufsicht scheint vorhanden zu sein.",
+    "oversightPoor": "Menschliche Aufsicht ist begrenzt oder noch nicht klar definiert."
+  },
+  "footer": {
+    "status": "Frühes MVP — in aktiver Entwicklung."
+  },
+  "requiredNote": "Pflichtfrage",
+  "about": {
+  "navLabel": "Über uns",
+  "title": "Über uns",
+  "intro": "AI Risk Screener wurde als praktisches Tool zur Vorbewertung entwickelt, um Organisationen dabei zu helfen, KI-Anwendungsfälle strukturierter, verständlicher und handlungsorientierter zu prüfen.",
+  "sections": {
+    "mission": {
+      "title": "Unsere Mission",
+      "p1": "Ziel ist es, die frühe KI-Risiko-Vorprüfung für Organisationen zugänglicher zu machen, die einen leichtgewichtigen ersten Schritt vor einer tieferen rechtlichen, Compliance-, Sicherheits- oder Governance-Prüfung benötigen."
+    },
+    "why": {
+      "title": "Warum dieses Tool existiert",
+      "p1": "Viele Organisationen nutzen bereits KI-Funktionen, APIs und eingebettete KI-Fähigkeiten, verfügen jedoch oft nicht über einen einfachen Weg, mögliche Risikobereiche, Governance-Lücken und Dokumentationsbedarfe frühzeitig zu erkennen."
+    },
+    "help": {
+      "title": "Wobei das Tool hilft",
+      "p1": "Das Tool unterstützt Teams dabei, die Aufnahme von KI-Anwendungsfällen zu strukturieren, mögliche regulatorische Pfade zu identifizieren, Governance- und Kontrolllücken sichtbar zu machen, Empfehlungen und Evidenzbedarfe vorzubereiten und Gespräche zwischen Fachbereich, Compliance, Risiko, Sicherheit und Technik zu unterstützen."
+    },
+    "note": {
+      "title": "Wichtiger Hinweis",
+      "p1": "Das Tool dient der Vorprüfung und Priorisierung. Es ersetzt keine Rechtsberatung, keine formale Konformitätsbewertung und keine internen Freigabeprozesse."
+      }
+    }
+  }
+}

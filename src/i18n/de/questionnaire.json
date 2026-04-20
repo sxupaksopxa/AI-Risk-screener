@@ -1,0 +1,693 @@
+{
+  "title": "KI-Risikobewertungsplattform",
+  "description": "Fragebogen mit dreißig Fragen zur Erstbewertung von KI-Anwendungsfällen, regulatorischer Einordnung, Governance-Reifegrad und Evidenzbereitschaft.",
+  "helperText":"Sie können den Fragebogen schrittweise ausfüllen. Ergebnisse werden automatisch aktualisiert.",
+  "helperTextSubtle": "Antworten werden beim Verlassen dieser Seite nicht gespeichert.",
+  "sections": {
+    "org_profile": {
+      "title": "Organisationsprofil"
+    },
+    "use_case_description": {
+      "title": "Beschreibung des KI-Anwendungsfalls"
+    },
+    "people_impacted": {
+      "title": "Betroffene Personen"
+    },
+    "data_and_privacy": {
+      "title": "Daten und Datenschutz"
+    },
+    "decision_impact": {
+      "title": "Auswirkungsgrad von Entscheidungen"
+    },
+    "oversight_security": {
+      "title": "Menschliche Aufsicht, Sicherheit und Resilienz"
+    },
+    "governance_docs": {
+      "title": "Governance und Dokumentation"
+    }
+  },
+  "questions": {
+    "Q01": {
+      "label": "Welcher Sektor beschreibt Ihre Organisation am besten?",
+      "options": {
+        "general_commercial": "Allgemeine Wirtschaft",
+        "financial_services": "Finanzdienstleistungen",
+        "insurance": "Versicherung",
+        "healthcare": "Gesundheitswesen",
+        "education": "Bildung",
+        "employment_hr": "Beschäftigung / HR",
+        "public_sector": "Öffentlicher Sektor",
+        "law_justice": "Strafverfolgung / Justiz",
+        "critical_infra": "Kritische Infrastruktur",
+        "other": "Anderer regulierter Sektor"
+      }
+    },
+    "Q02": {
+    "label": "In welchem Land oder in welchen Ländern wird dieser KI-Anwendungsfall eingesetzt?",
+    "options": {
+      "AT": "Österreich",
+      "BE": "Belgien",
+      "BG": "Bulgarien",
+      "HR": "Kroatien",
+      "CY": "Zypern",
+      "CZ": "Tschechien",
+      "DK": "Dänemark",
+      "EE": "Estland",
+      "FI": "Finnland",
+      "FR": "Frankreich",
+      "DE": "Deutschland",
+      "GR": "Griechenland",
+      "HU": "Ungarn",
+      "IE": "Irland",
+      "IT": "Italien",
+      "LV": "Lettland",
+      "LT": "Litauen",
+      "LU": "Luxemburg",
+      "MT": "Malta",
+      "NL": "Niederlande",
+      "PL": "Polen",
+      "PT": "Portugal",
+      "RO": "Rumänien",
+      "SK": "Slowakei",
+      "SI": "Slowenien",
+      "ES": "Spanien",
+      "SE": "Schweden",
+      "other": "Andere"
+      }
+    },
+    "Q03": {
+      "label": "Welche Rolle hat Ihre Organisation bei diesem Anwendungsfall?",
+      "options": {
+        "provider_developer": "Anbieter / Entwickler",
+        "deployer_user": "Betreiber / Nutzer",
+        "integrator_reseller": "Integrator / Reseller",
+        "consultancy_advisory": "Beratung / Advisory Support",
+        "undecided": "Noch nicht entschieden"
+      }
+    },
+    "Q04": {
+      "label": "Wie lautet der Name des KI-Anwendungsfalls oder der Funktion?",
+      "placeholder": "Beispiel: Assistent zur Schadenfall-Priorisierung"
+    },
+    "Q05": {
+      "label": "Welche Beschreibung trifft am besten auf das System zu?",
+      "options": {
+        "generates_media": "Erzeugt Text / Bilder / Code / Medien",
+        "classifies_scores": "Klassifiziert, ordnet oder bewertet Informationen",
+        "recommends_actions": "Empfiehlt Maßnahmen oder nächste Schritte",
+        "people_decisions": "Unterstützt oder trifft Entscheidungen über Personen",
+        "pattern_detection": "Erkennt Muster, Anomalien oder Betrug",
+        "biometric_capabilities": "Verwendet biometrische oder emotionsbezogene Funktionen",
+        "other": "Sonstiges"
+      }
+    },
+    "Q06": {
+      "label": "Ist die Funktion kundenbezogen, mitarbeiterbezogen, nur intern oder in ein anderes Produkt eingebettet?",
+      "options": {
+        "customer_facing": "Kundenbezogen",
+        "employee_facing": "Mitarbeiterbezogen",
+        "internal": "Nur intern",
+        "embedded_services": "In ein anderes Produkt / einen anderen Service eingebettet",
+        "mixed": "Gemischt"
+      }
+    },
+    "Q07": {
+      "label": "Basiert der Anwendungsfall auf einem KI-Modell, einer API oder einem Foundation-Model eines Drittanbieters?",
+      "options": {
+        "third_party": "Ja, nur Drittanbieter",
+        "plus_internal": "Ja, Drittanbieter plus interne Komponenten",
+        "internally_developed": "Nein, intern entwickelt",
+        "unsure": "Nicht sicher"
+      }
+    },
+    "Q08": {
+      "label": "Handelt es sich wahrscheinlich um ein KI-System im Geltungsbereich, basierend darauf, wie es aus Eingaben Ausgaben, Vorhersagen, Empfehlungen oder Entscheidungen erzeugt?",
+      "options": {
+        "likely_yes": "Wahrscheinlich ja",
+        "possibly": "Möglicherweise",
+        "likely_no": "Wahrscheinlich nein / einfache Automatisierung",
+        "unsure": "Nicht sicher"
+      }
+    },
+    "Q09": {
+      "label": "Wer ist hauptsächlich von den Ergebnissen dieses Anwendungsfalls betroffen?",
+      "options": {
+        "customers": "Kunden",
+        "employees": "Mitarbeiter",
+        "job_applicants": "Bewerber",
+        "students": "Studierende / Schüler",
+        "patients": "Patienten",
+        "children_minors": "Kinder / Minderjährige",
+        "public_members": "Mitglieder der Öffentlichkeit",
+        "no_impact": "Keine direkte Auswirkung auf Personen",
+        "other": "Sonstiges"
+      }
+    },
+    "Q10": {
+      "label": "Könnten die Ergebnisse die Rechte, den Zugang, Chancen, die Sicherheit oder Behandlung einer Person wesentlich beeinflussen?",
+      "options": {
+        "yes": "Ja",
+        "possibly": "Möglicherweise",
+        "no": "Nein"
+      }
+    },
+    "Q11": {
+      "label": "Sind Kinder, andere schutzbedürftige Personen oder sensible Bevölkerungsgruppen betroffen?",
+      "options": {
+        "yes": "Ja",
+        "possibly": "Möglicherweise",
+        "no": "Nein"
+      }
+    },
+    "Q12": {
+      "label": "Interagiert das System direkt mit Menschen, ohne dass immer offensichtlich ist, dass KI verwendet wird?",
+      "options": {
+        "yes": "Ja",
+        "sometimes": "Manchmal",
+        "no": "Nein"
+      }
+    },
+    "Q13": {
+      "label": "Welche Datenkategorien verarbeitet dieser Anwendungsfall?",
+      "options": {
+        "no_data": "Keine personenbezogenen Daten",
+        "personal_data": "Grundlegende personenbezogene Daten",
+        "sensitive_data": "Sensible / besondere Kategorien personenbezogener Daten",
+        "biometric_data": "Biometrische Daten",
+        "profiling_data": "Verhaltens- / Profildaten",
+        "confidential_data": "Vertrauliche Unternehmensdaten",
+        "public_data": "Nur öffentliche / offene Daten"
+      }
+    },
+    "Q14": {
+      "label": "Sind Trainings-, Tuning-, Retrieval- oder Prompt-Eingaben ausreichend dokumentiert, um Datenherkunft und zulässige Nutzung zu beschreiben?",
+      "options": {
+        "yes": "Ja",
+        "partly": "Teilweise",
+        "no": "Nein",
+        "not_applicable": "Nicht anwendbar"
+      }
+    },
+    "Q15": {
+      "label": "Sind Datenqualitätsprüfungen für Relevanz, Genauigkeit, Vollständigkeit und potenzielle Verzerrungen definiert?",
+      "options": {
+        "yes": "Ja",
+        "partly": "Teilweise",
+        "no": "Nein",
+        "not_applicable": "Nicht anwendbar"
+      }
+    },
+    "Q16": {
+      "label": "Wie werden die KI-Ergebnisse in der Praxis genutzt?",
+      "options": {
+        "info": "Nur informativ",
+        "decision_support": "Entscheidungsunterstützung mit menschlicher Prüfung",
+        "trigger_auto": "Kann automatisch Aktionen auslösen",
+        "people_decision": "Kann Entscheidungen über Personen beeinflussen (z. B. Einstellung, Kreditvergabe, Zugang zu Dienstleistungen)",
+        "undecided": "Noch nicht entschieden"
+      }
+    },
+    "Q17": {
+      "label": "Könnte ein falsches Ergebnis finanzielle Verluste, Leistungsverweigerung, Reputationsschäden, Diskriminierung oder Sicherheitsrisiken verursachen?",
+      "options": {
+        "high_impact": "Hohe potenzielle Auswirkung",
+        "moderate_impact": "Mittlere potenzielle Auswirkung",
+        "low_impact": "Geringe potenzielle Auswirkung",
+        "unsure": "Nicht sicher"
+      }
+    },
+    "Q18": {
+      "label": "Ist der Anwendungsfall mit einem der folgenden Bereiche verbunden, die eine genauere regulatorische Prüfung erfordern könnten?",
+      "options": {
+        "employment_management": "Beschäftigung / Mitarbeitermanagement",
+        "education_admissions": "Bildung / Prüfungen / Zulassung",
+        "essential_services": "Wesentliche private oder öffentliche Dienstleistungen",
+        "law_enforcement": "Strafverfolgung",
+        "migration_control": "Migration / Grenzkontrolle",
+        "justice_processes": "Rechtspflege / demokratische Prozesse",
+        "medical_healthcare": "Medizinprodukte / Gesundheitswesen",
+        "infrastructure_safety": "Kritische Infrastruktur / Sicherheitskomponenten",
+        "none_of_these": "Keines davon",
+        "unsure": "Nicht sicher"
+      }
+    },
+    "Q19": {
+      "label": "Verwendet der Anwendungsfall biometrische Identifizierung, Kategorisierung, Emotionserkennung oder ähnliche Rückschlüsse über Personen?",
+      "options": {
+        "yes": "Ja",
+        "possibly": "Möglicherweise",
+        "no": "Nein"
+      }
+    },
+    "Q20": {
+      "label": "Könnte der Anwendungsfall als Verhaltensmanipulation, Ausnutzung von Schwächen, Social Scoring oder ungezieltes Scraping / verbotene biometrische Praktiken angesehen werden?",
+      "options": {
+        "yes": "Ja",
+        "possibly": "Möglicherweise",
+        "no": "Nein",
+        "unsure": "Nicht sicher"
+      }
+    },
+    "Q21": {
+      "label": "Welches Maß an menschlicher Aufsicht besteht, bevor folgenreiche Ergebnisse verwendet werden?",
+      "options": {
+        "review_approval": "Starke Prüfung und Freigabe",
+        "review_cases": "Prüfung ausgewählter Fälle",
+        "limited_oversight": "Begrenzte Aufsicht",
+        "no_oversight": "Keine sinnvolle Aufsicht",
+        "not_yet_defined": "Noch nicht definiert"
+      }
+    },
+    "Q22": {
+      "label": "Sind Protokollierung, Nachvollziehbarkeit und Versionsaufzeichnungen für Prompts, Modelle, Regeln und wesentliche Ergebnisse vorhanden?",
+      "options": {
+        "yes": "Ja",
+        "partly": "Teilweise",
+        "no": "Nein"
+      }
+    },
+    "Q23": {
+      "label": "Sind Sicherheitskontrollen für Zugriff, Geheimnisse, Modell-/API-Nutzung, Missbrauchsprävention und Incident Handling definiert?",
+      "options": {
+        "yes": "Ja",
+        "partly": "Teilweise",
+        "no": "Nein"
+      }
+    },
+    "Q24": {
+      "label": "Gibt es nach der Einführung ein Monitoring für Leistungsdrift, schädliche Ausgaben, Ausfälle und Nutzerbeschwerden?",
+      "options": {
+        "yes": "Ja",
+        "partly": "Teilweise",
+        "no": "Nein",
+        "not_deployed_yet": "Noch nicht produktiv eingesetzt"
+      }
+    },
+    "Q25": {
+      "label": "Gibt es einen benannten fachlichen Owner und einen benannten Risk-/Compliance-Owner für diesen KI-Anwendungsfall?",
+      "options": {
+        "both_defined": "Beide definiert",
+        "one_defined": "Einer definiert",
+        "none_defined": "Keiner definiert"
+      }
+    },
+    "Q26": {
+      "label": "Ist dieser Anwendungsfall in einem KI-Inventar oder einem ähnlichen Governance-Register erfasst?",
+      "options": {
+        "yes": "Ja",
+        "planned": "Geplant",
+        "no": "Nein"
+      }
+    },
+    "Q27": {
+      "label": "Haben Sie den vorgesehenen Zweck, Einschränkungen, nicht vorgesehene Nutzungen und Zielnutzer dokumentiert?",
+      "options": {
+        "yes": "Ja",
+        "partly": "Teilweise",
+        "no": "Nein"
+      }
+    },
+    "Q28": {
+      "label": "Hat die Organisation den Drittanbieter oder Modelllieferanten hinsichtlich Transparenz, Vertragsbedingungen, Sicherheit und Dokumentation bewertet?",
+      "options": {
+        "yes": "Ja",
+        "partly": "Teilweise",
+        "no": "Nein",
+        "not_applicable": "Nicht anwendbar"
+      }
+    },
+    "Q29": {
+      "label": "Haben Mitarbeiter, die dieses System nutzen oder überwachen, KI-spezifische Leitlinien oder Schulungen erhalten, die zu ihrer Rolle passen?",
+      "options": {
+        "yes": "Ja",
+        "partly": "Teilweise",
+        "no": "Nein"
+      }
+    },
+    "Q30": {
+      "label": "Welche Nachweise liegen für diesen Anwendungsfall bereits vor?",
+      "options": {
+        "use_case": "Beschreibung des Anwendungsfalls",
+        "data_source": "Beschreibung der Datenquellen",
+        "risk_assessment": "Risikobewertung",
+        "oversight_procedure": "Verfahren zur menschlichen Aufsicht",
+        "testing_records": "Testnachweise",
+        "monitoring_plan": "Monitoring-Plan",
+        "incident_procedure": "Incident-/Eskaltionsverfahren",
+        "transparency_notice": "Transparenzhinweis",
+        "vendor_assessment": "Unterlagen zur Lieferanten-Due-Diligence",
+        "none_yet": "Noch nichts vorhanden"
+      }
+    }
+  },
+  "rules_engine": {
+    "title": "KI-Risikoanalyse-Plattform",
+    "notes": {
+      "note_id1": "Dieses Regelwerk dient als Screening- und Priorisierungsinstrument und stellt keine Rechtsberatung oder formale Konformitätsbewertung dar.",
+      "note_id2": "Die Regeln sind bewusst transparent und nachvollziehbar gestaltet, sodass Ergebnisse auf konkrete Antworten zurückgeführt werden können."
+    }
+  },
+  "rules": {
+    "R01-C01": { "name": "Allgemeiner kommerzieller Sektor" },
+    "R01-C02": { "name": "Finanzdienstleistungssektor" },
+    "R01-C03": { "name": "Versicherungssektor" },
+    "R01-C04": { "name": "Gesundheitssektor" },
+    "R01-C05": { "name": "Bildungssektor" },
+    "R01-C06": { "name": "Beschäftigungs- und HR-Sektor" },
+    "R01-C07": { "name": "Öffentlicher Sektor Sektor" },
+    "R01-C08": { "name": "Justiz- und Rechtssektor" },
+    "R01-C09": { "name": "Kritische Infrastruktursektor" },
+    "R01-C10": { "name": "Sonstiger Sektor" },
+    "R01-X03": {
+      "name": "Hochrisikobereich mit nicht definierter Aufsicht",
+      "recommendation1": "Definieren und implementieren Sie geeignete menschliche Kontrollmechanismen, bevor KI-Systeme in Hochrisikobereichen eingesetzt werden."
+    },
+
+    "R02-C01": { 
+      "name": "EU-Rechtsraum",
+      "recommendation1": "Prüfen Sie, ob dieses System unter den EU AI Act fällt und identifizieren Sie die anwendbaren Anforderungen basierend auf Nutzung und Risikostufe."
+    },
+    "R02-C02": { "name": "Nicht-EU-Rechtsraum" },
+
+    "R06-C01": { "name": "Kundenorientiertes System" },
+    "R06-C02": { "name": "Mitarbeiterorientiertes System" },
+    "R06-C03": { "name": "Internes System" },
+    "R06-C04": { "name": "Eingebetteter Service" },
+    "R06-C05": { "name": "System mit gemischter Exposition" },
+    "R06-X01": {
+      "name": "Extern exponierter KI-Anwendungsfall",
+      "recommendation1": "Stellen Sie Transparenz sicher, indem Nutzer darüber informiert werden, dass sie gegebenenfalls mit einem KI-System interagieren."
+    },
+
+    "R08-C01": { "name": "Wahrscheinlich ein KI-System im Anwendungsbereich" },
+    "R08-C02": { "name": "Möglicher KI-Anwendungsbereich" },
+    "R08-C03": { "name": "Unklarer KI-Anwendungsbereich" },
+    "R08-X01": {
+      "recommendation1": "Klären und dokumentieren Sie, ob das System in den Anwendungsbereich von KI fällt, da dies die Anwendbarkeit regulatorischer Anforderungen beeinflussen kann."
+    },
+    "R08-X02": {
+      "recommendation1": "Stellen Sie eine eindeutige Einstufung sicher, ob das System als KI-System gilt; ohne diese kann die Risikobewertung nicht als verlässlich angesehen werden."
+    },
+
+    "R10-C01": { "name": "Wesentliche Auswirkungen auf Personen" },
+    "R10-C02": { "name": "Mögliche wesentliche Auswirkungen auf Personen" },
+    "R10-C03": { "name": "Keine wesentlichen Auswirkungen auf Personen" },
+    "R10-X01": {
+      "recommendation1": "Implementieren Sie angemessene Risikomanagement-, Kontroll- und Überwachungsmaßnahmen für KI-Systeme mit wesentlichem Einfluss auf Personen."
+    },  
+    "R10-X04": {
+      "name": "Vulnerable persons affected with material impact",
+      "recommendation1": "Implementieren Sie verstärkte Schutzmaßnahmen, Aufsicht und Risikokontrollen, wenn KI-Systeme schutzbedürftige Personen wesentlich betreffen können."
+    },
+    "R10-X06": {
+      "name": "Material impact with weak oversight",
+      "recommendation1": "Definieren und stärken Sie die menschliche Aufsicht für KI-Systeme mit wesentlichen Auswirkungen auf Personen, bevor deren Ergebnisse für Entscheidungen oder automatisierte Handlungen genutzt werden."
+    },
+
+    "R11-C01": { "name": "Kinder oder schutzbedürftige Personen im Anwendungsbereich" },
+    "R11-C02": { "name": "Möglicherweise Kinder oder schutzbedürftige Personen im Anwendungsbereich" },
+    "R11-C03": { "name": "Keine Kinder oder schutzbedürftigen Personen im Anwendungsbereich" },
+
+    "R13-C02": { "name": "Personenbezogene Daten verarbeitet" },
+    "R13-C03": { "name": "Sensible Daten verarbeitet" },
+    "R13-C04": { "name": "Biometrische Daten verarbeitet" },
+    "R13-C05": { "name": "Profiling-Daten verarbeitet" },
+    "R13-C06": { "name": "Vertrauliche Daten verarbeitet" },
+    "R13-C07": { "name": "Öffentliche Daten verarbeitet" },
+    "R13-X01": {
+      "recommendation1": "Stellen Sie strenge Kontrollen, eine rechtliche Grundlage und geeignete Schutzmaßnahmen beim Einsatz sensibler oder biometrischer Daten in KI-Systemen sicher."
+    },
+
+    "R16-C01": { "name": "Nur informierende Nutzung" },
+    "R16-C02": { "name": "Entscheidungsunterstützung mit menschlicher Beteiligung" },
+    "R16-C03": { "name": "Automatischer Auslöser von Aktionen" },
+    "R16-C04": { "name": "Auswirkungen auf Entscheidungen über Personen" },
+    "R16-X01": {
+      "name": "Limited oversight in consequential decisions",
+      "recommendation1": "Stärken Sie die menschliche Aufsicht bei KI-gestützten folgenreichen Entscheidungen und definieren Sie klare Prüf- und Eingriffspunkte, bevor Ergebnisse verwendet werden."
+    },
+    "R16-X04": {
+      "name": "No defined oversight for consequential use",
+      "recommendation1": "Definieren und implementieren Sie eine formale menschliche Aufsicht, bevor KI-Ergebnisse für folgenreiche Entscheidungen oder automatisierte Handlungen genutzt werden."
+    },
+
+    "R21-C01": { "name": "Starke menschliche Aufsicht" },
+    "R21-C02": { "name": "Menschliche Überprüfung für ausgewählte Fälle" },
+    "R21-C03": { "name": "Begrenzte menschliche Aufsicht" },
+    "R21-C04": { "name": "Keine Aufsicht definiert" },
+
+    "R30-C01": { "name": "Anwendungsfall dokumentiert" },
+    "R30-C02": { "name": "Datenquelle dokumentiert" },
+    "R30-C03": { "name": "Risikobewertung vorhanden" },
+    "R30-C04": { "name": "Aufsichtsverfahren definiert" },
+    "R30-C05": { "name": "Testaufzeichnungen vorhanden" },
+    "R30-C06": { "name": "Monitoringplan definiert" },
+    "R30-C07": { "name": "Incident-Verfahren definiert" },
+    "R30-C08": { "name": "Transparenzhinweis vorhanden" },
+    "R30-C09": { "name": "Anbieterbewertung vorhanden" },
+    "R30-C10": { "name": "Nachweisdokumentation fehlt" },
+    "R30-X01": {
+      "name": "No governance evidence available",
+      "recommendation1": "Erstellen Sie grundlegende Governance-Dokumentation, einschließlich Anwendungsbeschreibung, Datenquellen, Risikobewertung und Aufsichtsverfahren, bevor das KI-System eingesetzt wird."
+    }, 
+    "R001": {
+      "name": "Voraussichtlich ein KI-System im Anwendungsbereich"
+    },
+    "R002": {
+      "name": "Möglicherweise nicht im Anwendungsbereich",
+      "note": "Die beschriebene Funktionalität könnte eher eine konventionelle Automatisierung als ein KI-System sein."
+    },
+    "R003": {
+      "name": "Möglicher Hinweis auf eine verbotene Praxis",
+      "recommendation1": "Vor der Einführung unbedingt eine rechtliche und Compliance-Prüfung durchführen.",
+      "recommendation2": "Das konkrete Nutzungsszenario sowie die betroffene Personengruppe dokumentieren."
+    },
+    "R004": {
+      "name": "Biometrische oder emotionsbezogene Analyse",
+      "recommendation1": "Überprüfen Sie biometrische, Kategorisierungs- und emotionsbezogene Funktionen im Hinblick auf die geltenden Anforderungen und Einschränkungen des AI Acts."
+    },
+    "R005": {
+      "name": "Bezug zu einem Hochrisikobereich"
+    },
+    "R006": {
+      "name": "Erhebliche Auswirkungen auf Menschen"
+    },
+    "R007": {
+      "name": "Transparenzprüfung bei direkter Interaktion",
+      "recommendation1": "Prüfen Sie, ob – soweit angemessen – ein Hinweis oder eine Offenlegung gegenüber Nutzern erfolgen sollte, dass KI eingesetzt wird."
+    },
+    "R008": {
+      "name": "Kinder oder schutzbedürftige Personen",
+      "recommendation1": "Führen Sie eine vertiefte Prüfung möglicher Risiken, Schutzmaßnahmen sowie eine angemessene Kommunikation für schutzbedürftige Personen durch."
+    },
+    "R009": {
+      "name": "Verwendung sensibler oder biometrischer Daten",
+      "recommendation1": "Dokumentieren Sie die Rechtsgrundlage, Datenminimierung, Herkunft der Daten sowie geeignete Kontrollen für den Umgang mit sensiblen Daten."
+    },
+    "R010": {
+      "name": "Unzureichende Dokumentation der Datenherkunft",
+      "recommendation1": "Erstellen Sie eine dokumentierte Übersicht der Datenquellen und Datenherkunft für Training, Feinabstimmung, Retrieval und Prompt-Eingaben."
+    },
+    "R011": {
+      "name": "Unvollständige Datenqualitätskontrollen",
+      "recommendation1": "Definieren Sie Prüfungen zur Datenqualität, Verzerrung (Bias) und Relevanz für die im KI-Anwendungsfall verwendeten Daten."
+    },
+    "R012": {
+      "name": "Begrenzte menschliche Aufsicht bei folgenreichen Anwendungen",
+      "recommendation1": "Führen Sie eine menschliche Überprüfung vor endgültigen folgenschweren Entscheidungen oder Maßnahmen ein."
+    },
+    "R013": {
+      "name": "Hohes Risiko von Schäden",
+      "recommendation1": "Priorisieren Sie Tests, klare Eskalationskriterien sowie eine dokumentierte Risikoakzeptanz vor dem produktiven Einsatz."
+    },
+    "R014": {
+      "name": "Fehlende Sicherheitskontrollen",
+      "recommendation1": "Definieren Sie Zugriffskontrollen, Geheimnismanagement, Maßnahmen zur Missbrauchsprävention sowie Kontrollen für den Umgang mit KI-Vorfällen."
+    },
+    "R015": {
+      "name": "Teilweise vorhandene Sicherheitskontrollen"
+    },
+    "R016": {
+      "name": "Lücke bei Protokollierung und Nachvollziehbarkeit",
+      "recommendation1": "Implementieren Sie eine Protokollierung von Modellversionen, Prompts und Konfigurationen, Freigaben sowie wesentlichen Ausgaben, soweit angemessen."
+    },
+    "R017": {
+      "name": "Lücke bei der Überwachung nach der Inbetriebnahme",
+      "recommendation1": "Definieren Sie Verfahren zur Überwachung, zur Entgegennahme von Beschwerden sowie zur Überprüfung von Drift oder schädlichen Ausgaben."
+    },
+    "R018": {
+      "name": "Unklare Zuständigkeiten",
+      "recommendation1": "Benennen Sie einen fachlichen Verantwortlichen sowie einen Risiko-/Compliance-Verantwortlichen für den KI-Anwendungsfall."
+    },
+    "R019": {
+      "name": "Lücke im KI-Inventar",
+      "recommendation1": "Erfassen Sie den Anwendungsfall in einem KI-Inventar oder Governance-Register."
+    },
+    "R020": {
+      "name": "Zweck und Grenzen nicht dokumentiert",
+      "recommendation1": "Dokumentieren Sie den vorgesehenen Zweck, die Zielgruppen, die Einschränkungen sowie unzulässige Verwendungszwecke."
+    },
+    "R021": {
+      "name": "Fehlende Überprüfung von Drittanbietern",
+      "recommendation1": "Führen Sie eine Lieferantenprüfung durch, die Transparenz, Sicherheit, vertragliche Regelungen sowie die Dokumentation des Anbieters abdeckt."
+    },
+    "R022": {
+      "name": "Lücke bei KI-Kompetenz und Schulung",
+      "recommendation1": "Stellen Sie rollenbasierte KI-Schulungen sowie klare Handlungsanweisungen für Mitarbeitende bereit."
+    },
+    "R023": {
+      "name": "Fehlende Nachweisdokumentation",
+      "recommendation1": "Erstellen Sie vor dem Start oder einer breiteren Einführung eine minimale Nachweisdokumentation."
+    },
+    "R024": {
+      "name": "Kritische Nachweislücken",
+      "recommendation1": "Erstellen Sie eine Risikobewertung, ein Verfahren zur Aufsicht, einen Testnachweis sowie einen Überwachungsplan."
+    },
+    "R025": {
+      "name": "Voraussichtlich geringes Risikoprofil",
+      "note": "Die aktuellen Antworten deuten auf ein geringeres Risikoprofil hin, vorbehaltlich der Bestätigung durch die tatsächlichen Einsatzdetails."
+    },
+    "R026": {
+      "name": "Grundlegender Reifegrad-Bonus"
+    },
+    "R027": {
+      "name": "Unklarer KI-Anwendungsbereich",
+      "recommendation1": "Klären Sie, ob die Funktionalität als KI-System einzustufen ist, und dokumentieren Sie die Begründung."
+    },
+    "R028": {
+      "name": "Eskalationsschwelle",
+      "note": "Es wird eine sofortige Governance- und Compliance-Prüfung empfohlen."
+    },
+    "R029": {
+      "name": "Moderate Schwelle"
+    },
+    "R030": {
+      "name": "Niedrige Schwelle"
+    },
+    "R_MATURITY_EVIDENCE": {
+      "name": "Nachweis von Reifegrad vorhanden"
+    },
+    "R_GAP_NO_EVIDENCE": {
+      "name": "Fehlende Nachweise / Dokumentation"
+    },
+    "R_OVERSIGHT_GOOD": {
+      "name": "Ausreichende menschliche Aufsicht"
+    },
+    "R_OVERSIGHT_POOR": {
+      "name": "Unzureichende menschliche Aufsicht"
+    },
+    "R_GOVERNANCE_DEFINED": {
+      "name": "Governance-Strukturen definiert"
+    }
+  },
+  "priority": {
+    "high": "Hoch",
+    "moderate": "Moderat",
+    "lower": "Niedrig",
+    "lower_risk": "Anwendungsfall mit geringerem Risiko",
+    "possible_high_risk": "Möglicherweise hochriskanter Anwendungsfall",
+    "likely_high_risk": "Wahrscheinlich hochriskanter Anwendungsfall",
+    "potentially_prohibited": "Möglicherweise verbotene KI-Anwendung"
+  },
+  "regulatory_paths": {
+  "possible_prohibited": "Möglicherweise verbotene Praxis",
+  "possible_high_risk": "Möglicherweise Hochrisiko-Anwendungsfall",
+  "possible_transparency_obligation": "Mögliche Transparenzpflicht",
+  "likely_minimal_risk": "Voraussichtlich geringes Risikoprofil",
+  "out_of_scope_or_unclear": "Nicht im Anwendungsbereich oder unklar"
+  },
+  "flags": {
+   "general_commercial_context": "Allgemeiner kommerzieller Kontext",
+  "financial_services_context": "Finanzdienstleistungs-Kontext",
+  "insurance_context": "Versicherungs-Kontext",
+  "education_context": "Bildungskontext",
+  "other_sector_context": "Sonstiger Sektorkontext",
+  "high_risk_domain_indicator": "Hochrisikobereich (z. B. Gesundheitswesen, Beschäftigung, öffentlicher Sektor oder Strafverfolgung)",   
+  
+  "eu_jurisdiction": "EU-Rechtsraum",
+  "non_eu_jurisdiction": "Nicht-EU-Rechtsraum",
+
+  "external_exposure": "Extern zugängliches System (z. B. kundenseitig oder in Dienste integriert)",
+
+  "likely_ai_system": "KI-System wahrscheinlich im Anwendungsbereich",
+  "scope_unclear": "KI-Anwendungsbereich unklar oder nicht eindeutig definiert",
+
+  "material_impact_on_people": "Erhebliche Auswirkungen auf Personen",
+  "potential_impact_on_people": "Mögliche Auswirkungen auf Personen",
+
+  "vulnerable_persons_in_scope": "Kinder oder schutzbedürftige Personen betroffen",
+  "potential_vulnerable_persons": "Mögliche Beteiligung schutzbedürftiger Personen",
+
+  "personal_data_processing": "Verarbeitung personenbezogener Daten",
+  "profiling_data_processing": "Verarbeitung von Profiling-Daten",
+  "confidential_data_processing": "Verarbeitung vertraulicher Daten",
+  "sensitive_data_processing": "Verarbeitung sensibler Daten",
+  "biometric_or_emotion_screening": "Verarbeitung biometrischer oder emotionsbezogener Daten",
+
+  "informational_use": "Rein informative Nutzung (kein Entscheidungseinfluss)",
+  "human_in_the_loop": "Entscheidungsunterstützung mit menschlicher Einbindung",
+  "automated_decision_making": "Automatisierte Entscheidungsfindung",
+  "human_impact_decision": "KI beeinflusst menschliche Entscheidungen maßgeblich",
+
+  "strong_human_oversight": "Starke menschliche Kontrolle (Überprüfung und Freigabe vor Ausführung)",
+  "review_cases_human_oversight": "Menschliche Überprüfung ausgewählter Fälle",
+  "limited_human_oversight": "Eingeschränkte menschliche Kontrolle",
+  "no_human_oversight_defined": "Keine menschliche Kontrolle definiert",
+
+  "use_case_documented": "Use-Case-Dokumentation vorhanden",
+  "risk_assessment_available": "Risikobewertung vorhanden",
+  "oversight_procedure_defined": "Verfahren zur menschlichen Kontrolle definiert",
+  "testing_records_available": "Testnachweise vorhanden",
+  "monitoring_plan_defined": "Monitoring-Plan definiert",
+  "data_source_documented": "Dokumentation der Datenquellen vorhanden",
+  "incident_procedure_defined": "Vorfallverfahren definiert",
+  "transparency_notice_available": "Transparenzhinweis vorhanden",
+  "vendor_assessment_available": "Lieferantenbewertung vorhanden",
+  "evidence_pack_missing": "Nachweise und Governance-Dokumentation fehlen",
+
+  "potential_prohibited_practice": "Möglicher Hinweis auf eine verbotene Praxis",
+  "transparency_screening_needed": "Transparenzprüfung bei direkter Interaktion",
+  "oversight_gap": "Begrenzte menschliche Aufsicht bei folgenreichen Anwendungen",
+  "high_harm_potential": "Hohes Schadenspotenzial"
+  },
+"cflags": {
+  "core_governance_evidence_available": "Zentrale Governance-Nachweise vorhanden",
+  "domain_undefined_oversight": "Hochrisikobereich mit nicht definierter Aufsicht",
+  "auto_decision_material_impact": "Automatisierte Entscheidungen mit wesentlicher Auswirkung",
+  "confident_data_exposure": "Exposition vertraulicher Daten",
+  "limited_oversight": "Eingeschränkte Aufsicht bei folgenreichen Entscheidungen",
+  "strong_approval": "Verbindliche Freigabe vor Ausführung",
+  "post_action_review": "Nachgelagerte Überprüfung vorhanden",
+  "no_defined_ovesight": "Keine klar definierte Aufsicht für folgenreiche Nutzung",
+  "no_governance_evidence": "Keine Governance-Nachweise vorhanden",
+  "governance_artifacts_missing": "Wichtige Governance-Dokumente fehlen"
+  },
+  "evidenceChecklist": {
+    "use_case_documented": "Anwendungsfall ist dokumentiert",
+    "data_source_documented": "Datenquellen und Herkunft sind dokumentiert",
+    "risk_assessment": "Risikobewertung ist vorhanden",
+    "oversight_procedure": "Verfahren zur menschlichen Aufsicht sind definiert",
+    "testing_records": "Test- und Validierungsnachweise sind vorhanden",
+    "monitoring_plan": "Monitoring und Leistungsüberwachung sind definiert",
+    "incident_procedure": "Verfahren zum Umgang mit Vorfällen sind definiert",
+    "transparency_notice": "Transparenzinformationen für Nutzer sind vorhanden",
+    "vendor_assessment": "Bewertung von Drittanbietern ist dokumentiert"
+  },
+  "maturity_domains": {
+  "governance": "Governance",
+  "data": "Daten",
+  "oversight": "Menschliche Aufsicht",
+  "security": "Sicherheit",
+  "monitoring": "Überwachung",
+  "documentation": "Dokumentation",
+  "overall": "Gesamt"
+  },
+  "results": {
+  "strengths": "Stärken",
+  "risks": "Risiken / Lücken"
+  },
+  "validationMessage": "Bitte beantworten Sie alle Pflichtfragen, bevor Sie die Ergebnisse anzeigen.",
+  "actionHelperLine1": "Beantworten Sie die Fragen und prüfen Sie die aktuelle Risikoübersicht.",
+  "actionHelperLine2": "Wenn Sie bereit sind, wechseln Sie zu den Ergebnissen und erstellen Sie einen Bericht.",
+  "resetConfirm": "Alle Antworten zurücksetzen?"
+}

@@ -1,0 +1,1968 @@
+{
+  "version": "1.0",
+  "title_key": "rules_engine.title",
+  "scoring_model": {
+    "regulatory_paths": [
+      "possible_prohibited",
+      "possible_high_risk",
+      "possible_transparency_obligation",
+      "likely_minimal_risk",
+      "out_of_scope_or_unclear"
+    ],
+    "maturity_domains": [
+      "governance",
+      "data",
+      "oversight",  
+      "security",
+      "monitoring",
+      "documentation"
+    ]
+  },
+  "notes_keys": [
+    "rules_engine.notes.note_id1",
+    "rules_engine.notes.note_id2"
+  ],
+  "rules": 
+  [
+  {
+    "id": "R01-C01",
+    "category": "context",
+    "name": "General commercial sector",
+    "name_key": "context.general_commercial",
+    "if": {
+      "all": [
+        { "field": "Q01", "equals": "general_commercial" }
+      ]
+    },
+    "then": {
+      "add_flag": "general_commercial_context"
+    }
+  },
+  {
+    "id": "R01-C02",
+    "category": "context",
+    "name": "Financial services sector",
+    "name_key": "context.financial_services",
+    "if": {
+      "all": [
+        { "field": "Q01", "equals": "financial_services" }
+      ]
+    },
+    "then": {
+      "add_flag": "financial_services_context"
+    }
+  },
+  {
+    "id": "R01-C03",
+    "category": "context",
+    "name": "Insurance sector",
+    "name_key": "context.insurance",   
+    "if": {
+      "all": [
+        { "field": "Q01", "equals": "insurance" }
+      ]
+    },
+    "then": {
+      "add_flag": "insurance_context"
+    }
+  },
+  {
+    "id": "R01-C04",
+    "category": "context",
+    "name": "Healthcare sector",
+    "name_key": "context.healthcare",      
+    "if": {
+      "all": [
+        { "field": "Q01", "equals": "healthcare" }
+      ]
+    },
+    "then": {
+      "add_flag": "high_risk_domain_indicator"
+    }
+  },
+  {
+    "id": "R01-C05",
+    "category": "context",
+    "name": "Education sector",
+    "name_key": "context.education",       
+    "if": {
+      "all": [
+        { "field": "Q01", "equals": "education" }
+      ]
+    },
+    "then": {
+      "add_flag": "education_context"
+    }
+  },
+  {
+    "id": "R01-C06",
+    "category": "context",
+    "name": "Employment and HR sector",
+    "name_key": "context.employment_hr",       
+    "if": {
+      "all": [
+        { "field": "Q01", "equals": "employment_hr" }
+      ]
+    },
+    "then": {
+      "add_flag": "high_risk_domain_indicator"
+    }
+  },
+  {
+    "id": "R01-C07",
+    "category": "context",
+    "name": "Public sector",
+    "name_key": "context.public_sector",   
+    "if": {
+      "all": [
+        { "field": "Q01", "equals": "public_sector" }
+      ]
+    },
+    "then": {
+      "add_flag": "high_risk_domain_indicator"
+    }
+  },
+  {
+    "id": "R01-C08",
+    "category": "context",
+    "name": "Law and justice sector",
+    "name_key": "context.law_justice",     
+    "if": {
+      "all": [
+        { "field": "Q01", "equals": "law_justice" }
+      ]
+    },
+    "then": {
+      "add_flag": "high_risk_domain_indicator"
+    }
+  },
+  {
+    "id": "R01-C09",
+    "category": "context",
+    "name": "Critical infrastructure sector",
+    "name_key": "context.critical_infra",     
+    "if": {
+      "all": [
+        { "field": "Q01", "equals": "critical_infra" }
+      ]
+    },
+    "then": {
+      "add_flag": "high_risk_domain_indicator"
+    }
+  },
+  {
+    "id": "R01-C10",
+    "category": "context",
+    "name": "Other sector",
+    "name_key": "context.other",       
+    "if": {
+      "all": [
+        { "field": "Q01", "equals": "other" }
+      ]
+    },
+    "then": {
+      "add_flag": "other_sector_context"
+    }
+  },
+  {
+    "id": "R01-X01",
+    "category": "context",
+    "name": "High-risk domain with material impact on people",
+    "if": {
+      "all": [
+        {
+          "field": "Q01",
+          "in": ["healthcare", "employment_hr", "public_sector", "law_justice", "critical_infra"]
+        },
+        {
+          "field": "Q10",
+          "equals": "yes"
+        }
+      ]
+    },
+    "then": {
+      "add_regulatory_path": "possible_high_risk",      
+      "risk_points": 15,
+      "maturity_adjustments": {
+        "governance": -5,
+        "documentation": -5
+      }
+    }
+  },
+  {
+    "id": "R01-X02",
+    "category": "context",
+    "name": "High-risk domain with consequential AI use",
+    "if": {
+      "all": [
+        {
+          "field": "Q01",
+          "in": ["healthcare", "employment_hr", "public_sector", "law_justice", "critical_infra"]
+        },
+        {
+          "field": "Q16",
+          "in": ["trigger_auto", "people_decision"]
+        }
+      ]
+    },
+    "then": {
+      "risk_points": 5,
+      "maturity_adjustments": {
+        "oversight": -5,
+        "governance": -5
+      }
+    }
+  },
+  {
+    "id": "R01-X03",
+    "category": "context",
+    "name": "High-risk domain with undefined oversight",
+    "if": {
+      "all": [
+        {
+          "field": "Q01",
+          "in": ["healthcare", "employment_hr", "public_sector", "law_justice", "critical_infra"]
+        },
+        {
+          "field": "Q21",
+          "equals": "not_yet_defined"
+        }
+      ]
+    },
+    "then": {
+      "add_cflag": "domain_undefined_oversight",
+      "maturity_adjustments": {
+        "oversight": -10,
+        "governance": -5,
+        "documentation": -5
+      },
+      "recommendations": ["rules.R01-X03.recommendation1"]
+    }
+  },
+  {
+  "id": "R01-X04",
+    "category": "context",
+    "if": {
+      "all": [
+        { "field": "Q01", "equals": "financial_services" },
+        { "field": "Q10", "equals": "yes" }
+      ]
+    },
+    "then": {
+      "risk_points": 20
+    }
+  },
+  {
+  "id": "R01-X05",
+  "category": "context",
+  "name": "High-risk domain with consequential use and strong approval",
+  "if": {
+    "all": [
+      {
+        "field": "Q01",
+        "in": ["healthcare", "employment_hr", "public_sector", "law_justice", "critical_infra"]
+      },
+      {
+        "field": "Q16",
+        "equals": "people_decision"
+      },
+      {
+        "field": "Q21",
+        "equals": "review_approval"
+      }
+    ]
+  },
+  "then": {
+    "risk_points": -5
+  }
+},
+{
+  "id": "R01-X06",
+  "category": "context",
+  "name": "Employment HR decision support with material impact",
+  "if": {
+    "all": [
+      {
+        "field": "Q01",
+        "equals": "employment_hr"
+      },
+      {
+        "field": "Q10",
+        "equals": "yes"
+      },
+      {
+        "field": "Q16",
+        "equals": "decision_support"
+      }
+    ]
+  },
+  "then": {
+    "risk_points": 5
+  }
+},
+{
+  "id": "R01-X07",
+  "category": "context",
+  "name": "Critical infrastructure decision support with material impact",
+  "if": {
+    "all": [
+      { "field": "Q01", "equals": "critical_infra" },
+      { "field": "Q10", "equals": "yes" },
+      { "field": "Q16", "equals": "decision_support" }
+    ]
+  },
+  "then": {
+    "risk_points": 5
+  }
+},
+{
+  "id": "R01-X08",
+  "category": "context",
+  "name": "Law and justice decision support with material impact",
+  "if": {
+    "all": [
+      { "field": "Q01", "equals": "law_justice" },
+      { "field": "Q10", "equals": "yes" },
+      { "field": "Q16", "equals": "decision_support" }
+    ]
+  },
+  "then": {
+    "risk_points": 5
+  }
+},
+{
+  "id": "R01-X10",
+  "category": "context",
+  "name": "Education decision support affecting students",
+  "if": {
+    "all": [
+      { "field": "Q01", "equals": "education" },
+      { "field": "Q10", "equals": "yes" },
+      { "field": "Q16", "equals": "decision_support" }
+    ]
+  },
+  "then": {
+    "risk_points": 5
+  }
+},
+  {
+    "id": "R02-C01",
+    "category": "jurisdiction",
+    "name": "EU jurisdiction",
+    "if": {
+      "all": [
+        {
+          "field": "Q02",
+          "contains_any": [
+            "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI",
+            "FR", "DE", "GR", "HU", "IE", "IT", "LV", "LT", "LU",
+            "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE"
+          ]
+        }
+      ]
+    },
+    "then": {
+      "add_flag": "eu_jurisdiction",
+      "recommendations": [ "rules.R02-C01.recommendation1" ]
+    }
+  },
+  {
+    "id": "R02-C02",
+    "category": "jurisdiction",
+    "name": "Non-EU jurisdiction",
+    "if": {
+      "all": [
+        { "field": "Q02", "contains_any": ["other"] }
+      ]
+    },
+    "then": {
+      "add_flag": "non_eu_jurisdiction"
+    }
+  },
+    {
+      "id": "R06-C01",
+      "category": "context",
+      "name": "Customer-facing system",
+      "if": {
+        "all": [
+          { "field": "Q06", "equals": "customer_facing" }
+        ]
+      },
+      "then": {
+        "add_flag": "external_exposure"
+      }
+    },
+    {
+      "id": "R06-C02",
+      "category": "context",
+      "name": "Employee-facing system",
+      "if": {
+        "all": [
+          { "field": "Q06", "equals": "employee_facing" }
+        ]
+      },
+      "then": {}
+    },
+    {
+    "id": "R06-C03",
+    "category": "context",
+    "name": "Internal system",
+    "if": {
+      "all": [
+        { "field": "Q06", "equals": "internal" }
+      ]
+    },
+    "then": {}
+  },
+  {
+    "id": "R06-C04",
+    "category": "context",
+    "name": "Embedded service",
+    "if": {
+      "all": [
+        { "field": "Q06", "equals": "embedded_services" }
+      ]
+    },
+    "then": {
+      "add_flag": "external_exposure"
+    }
+  },
+  {
+    "id": "R06-C05",
+    "category": "context",
+    "name": "Mixed exposure system",
+    "if": {
+      "all": [
+        { "field": "Q06", "equals": "mixed" }
+      ]
+    },
+    "then": {
+      "add_flag": "external_exposure"
+    }
+  },
+  {
+    "id": "R06-X01",
+    "category": "context",
+    "name": "Externally exposed AI use case",
+    "if": {
+      "all": [
+        {
+          "field": "Q06",
+          "in": ["customer_facing", "embedded_services", "mixed"]
+        },
+        {
+          "field": "Q08",
+          "equals": "likely_yes"
+        }
+      ]
+    },
+    "then": {
+      "add_regulatory_path": "possible_transparency_obligation",
+      "recommendations": ["rules.R06-X01.recommendation1"]
+    }
+  },
+  {
+    "id": "R06-X02",
+    "category": "context",
+    "name": "Externally exposed use with material impact",
+    "if": {
+      "all": [
+        {
+          "field": "Q06",
+          "in": ["customer_facing", "embedded_services", "mixed"]
+        },
+        {
+          "field": "Q10",
+          "equals": "yes"
+        }
+      ]
+    },
+    "then": {
+      "risk_points": 5,
+      "maturity_adjustments": {
+        "documentation": -5,
+        "governance": -5
+      }
+    }
+  },
+  {
+  "id": "R06-X04",
+  "category": "exposure",
+  "name": "External exposure with sensitive data impacting people",
+  "if": {
+    "all": [
+      { "field": "Q06", "in": ["customer_facing", "embedded_services", "mixed"] },
+      { "field": "Q10", "equals": "yes" },
+      { "field": "Q13", "contains_any": ["sensitive_data", "biometric_data"] }
+    ]
+  },
+  "then": {
+    
+    "risk_points": 5
+  }
+},
+    {
+      "id": "R08-C01",
+      "category": "scope",
+      "name": "Likely AI system in scope",
+      "if": {
+        "all": [
+          {
+            "field": "Q08",
+            "equals": "likely_yes"
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "likely_ai_system"
+      }
+    },
+       {
+      "id": "R08-C02",
+      "category": "scope",
+      "name": "Possible AI scope",
+      "if": {
+        "all": [
+          {
+            "field": "Q08",
+            "equals": "possible"
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "scope_unclear"
+      }
+    },
+    {
+      "id": "R08-C03",
+      "category": "scope",
+      "name": "Unclear AI scope",
+      "if": {
+        "all": [
+          {
+            "field": "Q08",
+            "equals": "unsure"
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "scope_unclear"
+      }
+    },
+  {
+    "id": "R08-X01",
+    "category": "scope",
+    "name": "Possible AI scope path",
+    "if": {
+      "all": [
+        { "field": "Q08", "equals": "possible" }
+      ]
+    },
+    "then": {
+      "add_regulatory_path": "out_of_scope_or_unclear",
+        "recommendations": [ "rules.R08-X01.recommendation1" ],
+        "maturity_adjustments": {
+          "documentation": -5
+        }
+    }
+  },
+  {
+    "id": "R08-X02",
+    "category": "scope",
+    "name": "Unclear AI scope path",
+    "if": {
+      "all": [
+        { "field": "Q08", "equals": "unsure" }
+      ]
+    },
+    "then": {
+      "add_regulatory_path": "out_of_scope_or_unclear",
+        "maturity_adjustments": {
+          "governance": -5,
+          "documentation": -5
+        },
+        "recommendations": [ "rules.R08-X02.recommendation1" ]
+      }
+  },
+    {
+      "id": "R003",
+      "category": "prohibited",
+      "name": "Potential prohibited practice indicator",
+      "if": {
+        "all": [
+          {
+            "field": "Q20",
+            "in": [
+              "yes",
+              "possible"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "potential_prohibited_practice",
+        "add_regulatory_path": "possible_prohibited",
+        "risk_points": 40,
+        "recommendations": [
+          "rules.R003.recommendation1",
+          "rules.R003.recommendation2"
+        ],
+        "maturity_adjustments": {
+          "governance": -15,
+          "documentation": -10
+        }
+      }
+    },
+    {
+      "id": "R004",
+      "category": "prohibited",
+      "name": "Biometric or emotion-related screening",
+      "if": {
+        "all": [
+          {
+            "field": "Q19",
+            "in": [
+              "yes",
+              "possible"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "biometric_or_emotion_screening",
+        "risk_points": 20,
+        "recommendations": [
+          "rules.R004.recommendation1"
+        ],
+        "maturity_adjustments": {
+          "data": -10,
+          "documentation": -10,
+          "governance": -5
+        }
+      }
+    },
+    {
+      "id": "R005",
+      "category": "high_risk",
+      "name": "High-risk domain linkage",
+      "if": {
+        "all": [
+          {
+            "field": "Q18",
+            "not_contains_any": [
+              "none_of_these"
+            ]
+          },
+          {
+            "field": "Q18",
+            "not_contains_any": [
+              "unsure"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "high_risk_domain_indicator",
+        "add_regulatory_path": "possible_high_risk",
+        "risk_points": 25,
+        "maturity_adjustments": {
+          "documentation": -5,
+          "governance": -5
+        }
+      }
+    },
+      {
+      "id": "R10-C01",
+      "category": "impact",
+      "name": "Material impact on people",
+      "if": {
+        "all": [
+          {
+            "field": "Q10",
+            "equals": "yes"
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "material_impact_on_people"
+      }
+    },
+    {
+      "id": "R10-C02",
+      "category": "impact",
+      "name": "Possible material impact on people",
+      "if": {
+        "all": [
+          {
+            "field": "Q10",
+            "equals": "possible"
+          }
+        ]
+      },
+        "then": {
+        "add_flag": "potential_impact_on_people"
+      }
+    },
+    {
+      "id": "R10-C03",
+      "category": "impact",
+      "name": "No material impact on people",
+      "if": {
+        "all": [
+          {
+            "field": "Q10",
+            "equals": "no"
+          }
+        ]
+      },
+        "then": {}
+    },    
+    {
+      "id": "R10-X01",
+      "category": "impact",
+      "name": "Automated decisions with material impact",
+      "if": {
+        "all": [
+          {
+            "field": "Q10",
+            "equals": "yes"
+          },
+          {
+            "field": "Q16",
+            "equals": "trigger_auto"
+          }
+        ]
+      },
+      "then": {
+        "add_cflag": "auto_decision_material_impact",
+        "add_regulatory_path": "possible_high_risk",
+        "risk_points": 25,
+        "recommendations": [ "rules.R10-X01.recommendation1" ]
+      }
+    },
+    {
+      "id": "R10-X02",
+      "category": "impact",
+      "name": "People-related decision influence",
+      "if": {
+        "all": [
+          {
+            "field": "Q10",
+            "equals": "yes"
+          },
+          {
+            "field": "Q16",
+            "equals": "people_decision"
+          }
+        ]
+      },
+      "then": {
+        "risk_points": 15
+      }
+    },
+    {
+    "id": "R10-X03",
+      "category": "impact",
+      "name": "Decision support with human oversight",
+      "if": {
+        "all": [
+          { "field": "Q10", "equals": "yes" },
+          { "field": "Q16", "equals": "decision_support"}
+        ]
+      },
+      "then": {
+        "risk_points": 5
+      }
+    },
+    {
+    "id": "R10-X04",
+      "category": "impact",
+      "name": "Vulnerable persons affected with material impact",
+      "if": {
+        "all": [
+          { "field": "Q10", "equals": "yes" },
+          { "field": "Q11", "equals": "yes" }
+        ]
+      },
+      "then": {
+        "risk_points": 15,
+        "recommendations": [
+          "rules.R10-X04.recommendation1"
+        ],
+        "maturity_adjustments": {
+          "governance": -10,
+          "data": -10,
+          "oversight": -5
+        }        
+      }
+    },
+     {
+    "id": "R10-X05",
+      "category": "impact",
+      "name": "Vulnerable persons possible affected",
+      "if": {
+        "all": [
+          { "field": "Q10", "equals": "yes" },
+          { "field": "Q11", "equals": "possible" }
+        ]
+      },
+      "then": {
+        "risk_points": 5,
+        "maturity_adjustments": {
+          "governance": -5,
+          "data": -5,
+          "oversight": -5
+        }        
+      }
+    },
+    {
+      "id": "R10-X06",
+      "category": "impact",
+      "if": {
+      "all": [
+        { "field": "Q10", "equals": "yes" },
+        { "field": "Q16", "in": ["people_decision", "trigger_auto"] },
+        { "field": "Q21", "in": ["limited_oversight", "not_yet_defined"] }
+      ]
+    },
+    "then": {
+      "add_regulatory_path": "possible_high_risk",
+      "recommendations": ["rules.R10-X06.recommendation1"]
+    }
+  },
+  {
+  "id": "R10-X07",
+  "category": "impact",
+  "name": "Multiple moderate risk indicators",
+  "if": {
+    "all": [
+      { "field": "Q10", "equals": "possible" },
+      { "field": "Q11", "in": ["yes", "possible"] },
+      { "field": "Q30", "contains_any": ["none_yet"] }
+    ]
+  },
+  "then": {
+    "risk_points": 10
+  }
+},
+    {
+      "id": "R11-C01",
+      "category": "vulnerability",
+      "name": "Children or vulnerable persons in scope",
+      "if": {
+        "all": [
+          {
+            "field": "Q11",
+            "equals": "yes"
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "vulnerable_persons_in_scope"
+      }
+    },
+    {
+      "id": "R11-C02",
+      "category": "vulnerability",
+      "name": "Possible children or vulnerable persons in scope",
+      "if": {
+        "all": [
+          {
+            "field": "Q11",
+            "equals": "possible"
+          }
+        ]
+      },
+        "then": {
+        "add_flag": "potential_vulnerable_persons"
+      }
+    },
+    {
+      "id": "R11-C03",
+      "category": "vulnerability",
+      "name": "No children or vulnerable persons in scope",
+      "if": {
+        "all": [
+          {
+            "field": "Q11",
+            "equals": "no"
+          }
+        ]
+      },
+        "then": {}
+    },
+    {
+      "id": "R11-X01",
+      "category": "vulnerability",
+      "name": "Children or vulnerable persons in scope",
+      "if": {
+        "all": [
+          {
+            "field": "Q11",
+            "equals": "yes"
+          },
+          {
+            "field": "Q30",
+            "contains_any": ["none_yet"]
+          }
+        ]
+      },
+        "then": {
+          "risk_points": 5
+        }
+    },
+    {
+      "id": "R007",
+      "category": "transparency",
+      "name": "Direct interaction transparency check",
+      "if": {
+        "all": [
+          {
+            "field": "Q12",
+            "in": ["yes","sometimes"]
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "transparency_screening_needed",
+        "add_regulatory_path": "possible_transparency_obligation",
+        "risk_points": 10,
+        "recommendations": [
+          "rules.R007.recommendation1"
+        ],
+        "maturity_adjustments": {
+          "documentation": -8,
+          "governance": -5
+        }
+      }
+    },
+    {
+      "id": "R13-C02",
+      "category": "data",
+      "name": "Personal data processed",
+      "if": {
+        "all": [
+          {
+            "field": "Q13",
+            "contains_any": ["personal_data"]
+          }
+        ]
+      },
+      "then": {}
+    },
+    {
+      "id": "R13-C03",
+      "category": "data",
+      "name": "Sensitive data processed",
+      "if": {
+        "all": [
+          {
+            "field": "Q13",
+            "contains_any": ["sensitive_data"]
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "sensitive_data_processing"
+      }
+    },
+    {
+      "id": "R13-C04",
+      "category": "data",
+      "name": "Biometric data processed",
+      "if": {
+        "all": [
+          {
+            "field": "Q13",
+            "contains_any": ["biometric_data"]
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "biometric_or_emotion_screening"
+      }
+    },
+    {
+      "id": "R13-C05",
+      "category": "data",
+      "name": "Profiling data processed",
+      "if": {
+        "all": [
+          {
+            "field": "Q13",
+            "contains_any": ["profiling_data"]
+          }
+        ]
+      },
+      "then": {}
+    },
+    {
+      "id": "R13-C06",
+      "category": "data",
+      "name": "Confidential data processed",
+      "if": {
+        "all": [
+          {
+            "field": "Q13",
+            "contains_any": ["confidential_data"]
+          }
+        ]
+      },
+      "then": {}
+    },
+    {
+      "id": "R13-C07",
+      "category": "data",
+      "name": "Public data processed",
+      "if": {
+        "all": [
+          {
+            "field": "Q13",
+            "contains_any": ["public_data"]
+          } 
+        ]
+      },
+      "then": {}
+    },
+  {
+    "id": "R13-X01",
+    "category": "data",
+    "name": "Sensitive data with material impact",
+    "if": {
+      "all": [
+        { "field": "Q13", "contains_any": ["sensitive_data"] },
+        { "field": "Q10", "equals": "yes" }
+      ]
+    },
+    "then": {
+      "risk_points": 20,
+      "recommendations": [ "rules.R13-X01.recommendation1" ],
+      "maturity_adjustments": {
+        "data": -15,
+        "documentation": -10,
+        "governance": -5,
+        "oversight": -5
+      }
+    }
+  },
+  {
+    "id": "R13-X02",
+    "category": "data",
+    "name": "Biometric data with material impact",
+    "if": {
+      "all": [
+        { "field": "Q13", "contains_any": ["biometric_data"] },
+        { "field": "Q10", "equals": "yes" }
+      ]
+    },
+    "then": {
+      "risk_points": 20,
+      "maturity_adjustments": {
+        "data": -20,
+        "documentation": -10,
+        "governance": -10,
+        "oversight": -10
+      }
+    }
+  },
+  {
+    "id": "R13-X03",
+    "category": "data",
+    "name": "Profiling data affecting people",
+    "if": {
+      "all": [
+        { "field": "Q13", "contains_any": ["profiling_data"] },
+        { "field": "Q10", "equals": "yes" }
+      ]
+    },
+    "then": {
+      "risk_points": 10,
+      "maturity_adjustments": {
+        "data": -5,
+        "governance": -5,
+        "oversight": -5
+      }
+    }
+  },
+  {
+    "id": "R13-X04",
+    "category": "data",
+    "name": "Personal data with material impact",
+    "if": {
+      "all": [
+        { "field": "Q13", "contains_any": ["personal_data"] },
+        { "field": "Q13", "not_contains_any": ["sensitive_data", "biometric_data"] },
+        { "field": "Q10", "equals": "yes" }
+      ]
+    },
+    "then": {
+      "risk_points": 5,
+      "maturity_adjustments": {
+        "data": -5
+      }
+    }
+  },
+  {
+    "id": "R13-X05",
+    "category": "data",
+    "name": "Confidential data exposure",
+    "if": {
+      "all": [
+        { "field": "Q13", "contains_any": ["confidential_data"] },
+        { "field": "Q06", "in": ["customer_facing", "mixed"] }
+      ]
+    },
+    "then": {
+      "add_cflag": "confident_data_exposure",
+      "risk_points": 5,
+      "maturity_adjustments": {
+        "security": -10,
+        "governance": -5
+      }
+    }
+  },
+    {
+      "id": "R010",
+      "category": "data",
+      "name": "Weak provenance documentation",
+      "if": {
+        "all": [
+          {
+            "field": "Q14",
+            "equals": "no"
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "data_provenance_gap",
+        "risk_points": 12,
+        "maturity_adjustments": {
+          "data": -10,
+          "documentation": -10
+        },
+        "recommendations": [
+          "rules.R010.recommendation1"
+        ]
+      }
+    },
+    {
+      "id": "R011",
+      "category": "data",
+      "name": "Incomplete data quality controls",
+      "if": {
+        "all": [
+          {
+            "field": "Q15",
+            "in": [
+              "partly",
+              "no"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "data_quality_gap",
+        "risk_points": 10,
+        "maturity_adjustments": {
+          "data": -10,
+          "monitoring": -5
+        },
+        "recommendations": [
+          "rules.R011.recommendation1"
+        ]
+      }
+    },
+  {
+    "id": "R16-C01",
+    "category": "decision",
+    "name": "Informational use only",
+    "if": {
+      "all": [
+        { "field": "Q16", "equals": "info" }
+      ]
+    },
+    "then": {
+      "add_flag": "informational_use"
+    }
+  },
+  {
+    "id": "R16-C02",
+    "category": "decision",
+    "name": "Decision support with human involvement",
+    "if": {
+      "all": [
+        { "field": "Q16", "equals": "decision_support" }
+      ]
+    },
+    "then": {
+      "add_flag": "human_in_the_loop"
+    }
+  },
+  {
+    "id": "R16-C03",
+    "category": "decision",
+    "name": "Automated action trigger",
+    "if": {
+      "all": [
+        { "field": "Q16", "equals": "trigger_auto" }
+      ]
+    },
+    "then": {
+      "add_flag": "automated_decision_making"
+    }
+  },
+  {
+    "id": "R16-C04",
+    "category": "decision",
+    "name": "People-related decision impact",
+    "if": {
+      "all": [
+        { "field": "Q16", "equals": "people_decision" }
+      ]
+    },
+    "then": {
+      "add_flag": "human_impact_decision"
+    }
+  },
+     {
+    "id": "R16-X01",
+    "category": "oversight",
+    "name": "Limited oversight in consequential decisions",
+    "if": {
+      "all": [
+        {
+          "field": "Q16",
+          "in": ["trigger_auto", "people_decision"]
+        },
+        {
+          "field": "Q21",
+          "equals": "limited_oversight"
+        }
+      ]
+    },
+    "then": {
+      "add_cflag": "limited_oversight",
+      "risk_points": 20,
+      "maturity_adjustments": {
+        "oversight": -15,
+        "governance": -5,
+        "documentation": -5
+      },
+      "recommendations": [
+        "rules.R16-X01.recommendation1"
+      ]
+    }
+  },
+  {
+    "id": "R16-X02",
+    "category": "oversight",
+    "name": "Strong approval before action",
+    "if": {
+      "all": [
+        {
+          "field": "Q16",
+          "in": ["trigger_auto", "people_decision"]
+        },
+        {
+          "field": "Q21",
+          "equals": "review_approval"
+        }
+      ]
+    },
+    "then": {
+      "add_cflag": "strong_approval",        
+      "maturity_adjustments": {
+        "oversight": 15,
+        "governance": 5,
+        "documentation": 5
+      }
+    }
+  },
+  {
+    "id": "R16-X03",
+    "category": "oversight",
+    "name": "Post-action review in place",
+    "if": {
+      "all": [
+        {
+          "field": "Q16",
+          "in": ["trigger_auto", "people_decision"]
+        },
+        {
+          "field": "Q21",
+          "equals": "review_cases"
+        }
+      ]
+    },
+    "then": {
+      "add_cflag": "post_action_review",        
+      "maturity_adjustments": {
+        "oversight": 5,
+        "documentation": 5
+      }
+    }
+  },
+  {
+    "id": "R16-X04",
+    "category": "oversight",
+    "name": "No defined oversight for consequential use",
+    "if": {
+      "all": [
+        {
+          "field": "Q16",
+          "in": ["trigger_auto", "people_decision"]
+        },
+        {
+          "field": "Q21",
+          "equals": "not_yet_defined"
+        }
+      ]
+    },
+    "then": {
+      "add_regulatory_path": "possible_high_risk",
+      "add_cflag": "no_defined_ovesight",  
+      "risk_points": 20,
+      "maturity_adjustments": {
+        "oversight": -25,
+        "governance": -10,
+        "documentation": -10
+      },
+      "recommendations": [ "rules.R16-X04.recommendation1" ]
+    }
+  },
+    {
+      "id": "R013",
+      "category": "impact",
+      "name": "High potential harm",
+      "if": {
+        "all": [
+          {
+            "field": "Q17",
+            "equals": "high_impact"
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "high_harm_potential",
+        "risk_points": 20,
+        "recommendations": [
+          "rules.R013.recommendation1"
+        ],
+        "maturity_adjustments": {
+          "governance": -10,
+          "oversight": -10
+        }
+      }
+    },
+    {
+      "id": "R014",
+      "category": "security",
+      "name": "Security controls missing",
+      "if": {
+        "all": [
+          {
+            "field": "Q23",
+            "equals": "no"
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "security_control_gap",
+        "risk_points": 15,
+        "maturity_adjustments": {
+          "security": -20,
+          "governance": -5,
+          "documentation": -5
+        },
+        "recommendations": [
+          "rules.R014.recommendation1"
+        ]
+      }
+    },
+    {
+      "id": "R015",
+      "category": "security",
+      "name": "Security controls partial",
+      "if": {
+        "all": [
+          {
+            "field": "Q23",
+            "equals": "partly"
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "security_controls_incomplete",
+        "risk_points": 8,
+        "maturity_adjustments": {
+          "security": -10,
+          "documentation": -5
+        }
+      }
+    },
+    {
+      "id": "R016",
+      "category": "traceability",
+      "name": "Logging and traceability gap",
+      "if": {
+        "all": [
+          {
+            "field": "Q22",
+            "in": [
+              "partly",
+              "no"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "traceability_gap",
+        "risk_points": 10,
+        "maturity_adjustments": {
+          "documentation": -10,
+          "monitoring": -10,
+          "governance": -5
+        },
+        "recommendations": [
+          "rules.R016.recommendation1"
+        ]
+      }
+    },
+    {
+      "id": "R017",
+      "category": "monitoring",
+      "name": "Post-deployment monitoring gap",
+      "if": {
+        "all": [
+          {
+            "field": "Q24",
+            "in": [
+              "partly",
+              "no"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "monitoring_gap",
+        "risk_points": 10,
+        "maturity_adjustments": {
+          "monitoring": -15,
+          "governance": -5,
+          "documentation": -5
+        },
+        "recommendations": [
+          "rules.R017.recommendation1"
+        ]
+      }
+    },
+    {
+      "id": "R018",
+      "category": "governance",
+      "name": "Ownership gap",
+      "if": {
+        "all": [
+          {
+            "field": "Q25",
+            "equals": "none_defined"
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "ownership_gap",
+        "risk_points": 10,
+        "maturity_adjustments": {
+          "governance": -15,
+          "documentation": -5
+        },
+        "recommendations": [
+          "rules.R018.recommendation1"
+        ]
+      }
+    },
+    {
+      "id": "R019",
+      "category": "governance",
+      "name": "AI inventory gap",
+      "if": {
+        "all": [
+          {
+            "field": "Q26",
+            "equals": "no"
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "inventory_gap",
+        "risk_points": 8,
+        "maturity_adjustments": {
+          "governance": -10,
+          "documentation": -5
+        },
+        "recommendations": [
+          "rules.R019.recommendation1"
+        ]
+      }
+    },
+    {
+      "id": "R020",
+      "category": "documentation",
+      "name": "Purpose and limits not documented",
+      "if": {
+        "all": [
+          {
+            "field": "Q27",
+            "in": [
+              "partly",
+              "no"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "purpose_documentation_gap",
+        "risk_points": 10,
+        "maturity_adjustments": {
+          "documentation": -15,
+          "governance": -5
+        },
+        "recommendations": [
+          "rules.R020.recommendation1"
+        ]
+      }
+    },
+    {
+      "id": "R021",
+      "category": "vendor",
+      "name": "Third-party supplier review missing",
+      "if": {
+        "all": [
+          {
+            "field": "Q07",
+            "in": [
+              "third_party",
+              "plus_internal"
+            ]
+          },
+          {
+            "field": "Q28",
+            "in": [
+              "no",
+              "partly"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "vendor_due_diligence_gap",
+        "risk_points": 12,
+        "maturity_adjustments": {
+          "governance": -10,
+          "security": -5,
+          "documentation": -5
+        },
+        "recommendations": [
+          "rules.R021.recommendation1"
+        ]
+      }
+    },
+    {
+      "id": "R022",
+      "category": "literacy",
+      "name": "AI literacy and training gap",
+      "if": {
+        "all": [
+          {
+            "field": "Q29",
+            "in": [
+              "partly",
+              "no"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "add_flag": "ai_literacy_gap",
+        "risk_points": 8,
+        "maturity_adjustments": {
+          "governance": -5,
+          "oversight": -5
+        },
+        "recommendations": [
+          "rules.R022.recommendation1"
+        ]
+      }
+    },
+  {
+    "id": "R21-C01",
+    "category": "oversight",
+    "name": "Strong human oversight",
+    "if": {
+      "all": [
+        { "field": "Q21", "equals": "review_approval" }
+      ]
+    },
+    "then": {
+      "add_flag": "strong_human_oversight"
+    }
+  },
+  {
+    "id": "R21-C02",
+    "category": "oversight",
+    "name": "Human review for selected cases",
+    "if": {
+      "all": [
+        { "field": "Q21", "equals": "review_cases" }
+      ]
+    },
+    "then": {
+      "add_flag": "review_cases_human_oversight"
+    }
+  },
+  {
+    "id": "R21-C03",
+    "category": "oversight",
+    "name": "Limited human oversight",
+    "if": {
+      "all": [
+        { "field": "Q21", "equals": "limited_oversight" }
+      ]
+    },
+    "then": {
+      "add_flag": "limited_human_oversight"
+    }
+  },
+  {
+    "id": "R21-C04",
+    "category": "oversight",
+    "name": "No oversight defined",
+    "if": {
+      "all": [
+        { "field": "Q21", "equals": "not_yet_defined" }
+      ]
+    },
+    "then": {
+      "add_flag": "no_human_oversight_defined"
+    }
+  },
+  {
+    "id": "R30-C01",
+    "category": "evidence",
+    "name": "Use case documented",
+    "if": {
+      "all": [
+        { "field": "Q30", "contains_any": ["use_case"] }
+      ]
+    },
+    "then": {
+      "add_flag": "use_case_documented"
+    }
+  },
+  {
+    "id": "R30-C02",
+    "category": "evidence",
+    "name": "Data source documented",
+    "if": {
+      "all": [
+        { "field": "Q30", "contains_any": ["data_source"] }
+      ]
+    },
+    "then": {
+      "add_flag": "data_source_documented"
+    }
+  },
+  {
+    "id": "R30-C03",
+    "category": "evidence",
+    "name": "Risk assessment available",
+    "if": {
+      "all": [
+        { "field": "Q30", "contains_any": ["risk_assessment"] }
+      ]
+    },
+    "then": {
+      "add_flag": "risk_assessment_available"
+    }
+  },
+  {
+    "id": "R30-C04",
+    "category": "evidence",
+    "name": "Oversight procedure defined",
+    "if": {
+      "all": [
+        { "field": "Q30", "contains_any": ["oversight_procedure"] }
+      ]
+    },
+    "then": {
+      "add_flag": "oversight_procedure_defined"
+    }
+  },
+  {
+    "id": "R30-C05",
+    "category": "evidence",
+    "name": "Testing records available",
+    "if": {
+      "all": [
+        { "field": "Q30", "contains_any": ["testing_records"] }
+      ]
+    },
+    "then": {
+      "add_flag": "testing_records_available"
+    }
+  },
+  {
+    "id": "R30-C06",
+    "category": "evidence",
+    "name": "Monitoring plan defined",
+    "if": {
+      "all": [
+        { "field": "Q30", "contains_any": ["monitoring_plan"] }
+      ]
+    },
+    "then": {
+      "add_flag": "monitoring_plan_defined"
+    }
+  },
+  {
+    "id": "R30-C07",
+    "category": "evidence",
+    "name": "Incident procedure defined",
+    "if": {
+      "all": [
+        { "field": "Q30", "contains_any": ["incident_procedure"] }
+      ]
+    },
+    "then": {
+      "add_flag": "incident_procedure_defined"
+    }
+  },
+  {
+    "id": "R30-C08",
+    "category": "evidence",
+    "name": "Transparency notice available",
+    "if": {
+      "all": [
+        { "field": "Q30", "contains_any": ["transparency_notice"] }
+      ]
+    },
+    "then": {
+      "add_flag": "transparency_notice_available"
+    }
+  },
+  {
+    "id": "R30-C09",
+    "category": "evidence",
+    "name": "Vendor assessment available",
+    "if": {
+      "all": [
+        { "field": "Q30", "contains_any": ["vendor_assessment"] }
+      ]
+    },
+    "then": {
+      "add_flag": "vendor_assessment_available"
+    }
+  },
+  {
+    "id": "R30-C10",
+    "category": "evidence",
+    "name": "Evidence pack missing",
+    "if": {
+      "all": [
+        { "field": "Q30", "contains_any": ["none_yet"] }
+      ]
+    },
+    "then": {
+      "add_flag": "evidence_pack_missing"
+    }
+  },
+  {
+    "id": "R30-X01",
+    "category": "evidence",
+    "name": "No governance evidence available",
+    "if": {
+      "all": [
+        {
+          "field": "Q30",
+          "contains_any": ["none_yet"]
+        }
+      ]
+    },
+    "then": {
+      "add_cflag": "no_governance_evidence",  
+      "risk_points": 10,
+      "maturity_adjustments": {
+        "documentation": -25,
+        "governance": -15,
+        "monitoring": -15
+      },
+      "recommendations": [
+        "rules.R30-X01.recommendation1"
+      ]
+    }
+  },
+  {
+    "id": "R30-X02",
+    "category": "evidence",
+    "name": "Core governance evidence available",
+    "if": {
+      "all": [
+        { "field": "Q30", "contains_any": ["risk_assessment", "monitoring_plan"] },
+        { "field": "Q30", "not_contains_any": ["none_yet"] }
+      ]
+    },
+    "then": {
+      "add_cflag": "core_governance_evidence_available",
+      "maturity_adjustments": {
+        "documentation": 20,
+        "monitoring": 15,
+        "governance": 10
+      }
+    }
+  },
+{
+    "id": "R30-X03",
+    "category": "evidence",
+    "name": "Critical governance artifacts missing",
+    "if": {
+      "all": [
+        {
+          "field": "Q30",
+          "not_contains_any": [
+            "risk_assessment",
+            "oversight_procedure",
+            "testing_records",
+            "monitoring_plan"
+          ]
+        },
+        {
+          "field": "Q30",
+          "not_contains_any": ["none_yet"]
+        }
+      ]
+    },
+    "then": {
+      "add_cflag": "governance_artifacts_missing",      
+      "risk_points": 10,
+      "maturity_adjustments": {
+        "documentation": -15,
+        "governance": -10,
+        "monitoring": -5,
+        "oversight": -5
+      }
+    }
+  },
+    {
+      "id": "R026",
+      "category": "maturity",
+      "name": "Baseline maturity credit",
+      "if": {
+        "all": [
+          {
+            "field": "Q22",
+            "equals": "yes"
+          },
+          {
+            "field": "Q23",
+            "equals": "yes"
+          },
+          {
+            "field": "Q24",
+            "in": [
+              "yes",
+              "not_deployed_yet"
+            ]
+          },
+          {
+            "field": "Q25",
+            "equals": "both_defined"
+          },
+          {
+            "field": "Q27",
+            "equals": "yes"
+          }
+        ]
+      },
+      "then": {
+        "maturity_adjustments": {
+          "governance": 10,
+          "security": 10,
+          "monitoring": 10,
+          "documentation": 10,
+          "data": 5,
+          "oversight": 5
+        }
+      }
+    },
+    {
+      "id": "R_OVERSIGHT_GOOD",
+      "if": {
+        "field": "Q05",
+        "equals": "human_in_loop"
+      },
+      "then": {
+        "maturity_adjustments": {
+        "oversight": 20
+        }
+      }
+    },
+    {
+      "id": "R_OVERSIGHT_POOR",
+      "if": {
+        "field": "Q05",
+        "equals": "fully_automated"
+      },
+      "then": {
+      "maturity_adjustments": {
+        "oversight": -25
+        }
+      }
+    },
+    {
+      "id": "R_GOVERNANCE_DEFINED",
+      "if": {
+        "field": "Q03",
+        "contains_any": ["provider_developer"]
+        },
+      "then": {
+        "maturity_adjustments": {
+          "governance": 15
+        }
+      }
+    },
+    {
+      "id": "R_AFFECTED_PUBLIC",
+      "category": "impact",
+      "name": "Affects general public",
+      "if": {
+        "field": "Q09",
+        "contains_any": ["general_public"]
+      },
+      "then": {
+        "add_flag": "broad_population_impact",
+        "risk_points": 10,
+        "maturity_adjustments": {
+        "governance": -5,
+        "oversight": -5
+        }
+      }
+    }
+  ],
+  "output_schema": {
+    "priority": [
+      "priority.high",
+      "priority.moderate",
+      "priority.lower"
+    ],
+    "maturity_score_range": "0-100",
+    "recommended_output_sections": [
+      "executive_summary",
+      "system_description",
+      "regulatory_path_indication",
+      "key_risk_drivers",
+      "control_gaps",
+      "recommended_actions",
+      "evidence_checklist",
+      "disclaimer"
+    ]
+  }
+}
