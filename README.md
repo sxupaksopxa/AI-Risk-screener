@@ -46,3 +46,34 @@ It does not provide legal advice or a formal compliance determination.
 - Tailwind CSS
 - Rules-based assessment engine
 - Azure Static Web Apps deployment
+
+## Further Development
+
+The current version represents an initial MVP focused on structured AI risk screening and clear, explainable outputs. Further development is planned in the following areas:
+
+### 1. Questionnaire expansion
+
+The tool currently uses a focused subset of questions (11 out of 30 defined).  
+The full questionnaire will be expanded step by step to improve coverage and accuracy across different AI use cases.
+
+This includes:
+- gradual activation of additional questions
+- validation and refinement of combinations
+- testing with real-world use cases
+
+This phase is intended to be supported by structured testing and user feedback, including external testers.
+
+### 2. Report and results enhancement
+
+The report will be further improved to provide clearer and more actionable insights.
+
+Planned improvements include:
+- more refined UI and structure of the report
+- clearer separation of positive findings and improvement areas
+- prioritization of key findings
+- highlighting of critical risk signals
+- more targeted and context-aware recommendations
+
+The goal is to make the output easier to interpret and more useful for decision-making across business, risk, and technical teams.
+
+These improvements aim to strengthen the practical usability and reliability of the tool, particularly for organizations that currently lack structured AI governance processes.
