@@ -2,7 +2,8 @@
   "title": "AI Risk Assessment Platform",
   "description": "Thirty-question screening questionnaire for AI use case intake, regulatory path indication, governance maturity, and evidence readiness.",
   "helperText": "You can complete this gradually. Results update automatically.",
-  "helperTextSubtle": "Answers are not saved when you leave this page.",
+  "helperTextSubtle": "Your answers are saved while you navigate. If you want to start over, you can reset the questionnaire at the bottom of the page.",
+  "start_new_assessment": "Start new assessment",
 
   "sections": {
     "org_profile": {

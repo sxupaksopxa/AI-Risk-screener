@@ -2,7 +2,8 @@
   "title": "KI-Risikobewertungsplattform",
   "description": "Fragebogen mit dreißig Fragen zur Erstbewertung von KI-Anwendungsfällen, regulatorischer Einordnung, Governance-Reifegrad und Evidenzbereitschaft.",
   "helperText":"Sie können den Fragebogen schrittweise ausfüllen. Ergebnisse werden automatisch aktualisiert.",
-  "helperTextSubtle": "Antworten werden beim Verlassen dieser Seite nicht gespeichert.",
+  "helperTextSubtle": "Ihre Antworten bleiben beim Navigieren erhalten. Sie können den Fragebogen am Ende der Seite zurücksetzen.",
+  "start_new_assessment": "Neue Bewertung starten",
   "sections": {
     "org_profile": {
       "title": "Organisationsprofil"
